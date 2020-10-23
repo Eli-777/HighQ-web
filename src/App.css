@@ -1,6 +1,18 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;  /* 10 / 16 = 62.5%  1rem = 10px */
+}
+
 body {
   font-family: "Open Sans Condensed";
-  padding: 20px 60px;
 }
 
 a {
@@ -8,6 +20,10 @@ a {
   color: black;
 }
 
-* {
-  box-sizing: border-box;
+li {
+  list-style: none;
+}
+
+.btn {
+  outline: none;
 }
