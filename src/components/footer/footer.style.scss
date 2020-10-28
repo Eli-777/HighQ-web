@@ -1,0 +1,65 @@
+@import '../../base.style.scss';
+
+.footer {
+  background-color: $color-grey-dark;
+  padding: 2rem 0;
+  font-size: 1.6rem;
+  color: $color-white;
+  font-weight: 500;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 3rem 0;
+  justify-items: center;
+
+
+  &__nav {
+    font-size: 3rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 1.2rem;
+
+    
+    &--link {
+      color: currentColor;
+    }
+  }
+
+  &__connect {
+    display: grid;
+    grid-template-rows: repeat(4, 1fr);
+    gap: .4rem;
+    justify-items: center;
+    align-items: center;
+
+    &--title {
+      font-size: 3rem;
+    }
+
+    &--social-icons {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0 3rem;
+
+      .social__icon {
+        width: 4rem;
+        height: 4rem;
+        color: $color-white;
+
+        &.fb {
+          color: $color-black;
+        }
+        &.ig {
+          color: $color-black;
+        }
+        &.tiktok {
+          color: $color-black;
+        }
+        &.youtube {
+          color: $color-black;
+        }
+      }
+    }
+
+  }
+}

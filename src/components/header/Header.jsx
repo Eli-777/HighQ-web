@@ -15,7 +15,7 @@ function Header(props) {
   return (
     <div className='header'>
       <div className="header__icon">
-        <Link to="/123" className="header__icon-link" />
+        <Link to="/" className="header__icon-link" />
       </div>
 
       

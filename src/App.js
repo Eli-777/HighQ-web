@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import Homepage from './pages/homepage/Homepage'
 import Header from './components/header/Header'
+import Footer from './components/footer/Footer'
 
 import './App.css';
 
@@ -11,9 +12,10 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <header className="App-header">
-          <Homepage />
-        </header>
+
+        <Homepage />
+
+        <Footer />
       </div>
     </Router>
   );
