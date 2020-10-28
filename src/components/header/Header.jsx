@@ -29,7 +29,7 @@ function Header(props) {
       <nav className={`${showBackground ? 'showBackground' : ''} nav`}>
         <ul className="nav__list">
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
-            <Link to="/" className="nav__item">作者介紹</Link>
+            <Link to="/" className="nav__link">作者介紹</Link>
           </li>
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
             <Link to="/" className='nav__link'>角色介紹</Link>

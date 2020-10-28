@@ -18,6 +18,12 @@
   display: flex;
   justify-content: space-between;
   padding: 1rem;
+  position: fixed;
+  height: 7rem;
+  width: 100%;
+  background-color: $color-white;
+  box-shadow: 0 .1rem 1rem .2rem rgba($color-black, .7);
+  z-index: 1000;
 
   &__icon {
     background-image: url(../../assets/header-icon.svg);
@@ -142,6 +148,11 @@
       background-size: 250%;
       transition: all 0.5s;
       cursor: pointer;
+      display: none;
+
+      &.showBackground {
+        display: block;
+      }
 
       &:nth-of-type(1) {
         @include itemBackgroundAnimation(rgba($color-second, 0.7), 0s);
