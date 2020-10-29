@@ -13,9 +13,11 @@ $color-purple-light: #C4C6E7;
 $radial-gradient-ig: radial-gradient(circle at 15% 200%, #fdf497 0%, #fdf497 5%, #fd5949 35%,#d6249f 50%,#285AEB 90%);
 $linear-gradient-fb: linear-gradient(to top, #016de4 50%, #18acfe 100%);
 
+$header-height: 7rem;
+
 
 .title {
   margin: 2rem;
-  font-size: 3rem;
+  font-size: 4rem;
   text-align: center;
 }

@@ -1,0 +1,22 @@
+@import '../../base.style.scss';
+
+.author {
+  padding-top: $header-height;
+
+  &__intro {
+    padding: 4rem;
+
+    display: grid;
+    gap: 2rem;
+    justify-items: center;
+
+    &--phrase {
+      line-height: 2;
+      font-size: 1.6rem;
+    }
+  }
+
+  &__img {
+    width: 50vw;
+  }
+}

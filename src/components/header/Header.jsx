@@ -18,7 +18,7 @@ function Header(props) {
         <Link to="/" className="header__icon-link" />
       </div>
 
-      
+
 
       <button type="button" className={`${showBackground ? 'showBackground' : ''} btn nav__button `} onClick={navToggle} >
         <span className="nav__icon"></span>
@@ -29,16 +29,16 @@ function Header(props) {
       <nav className={`${showBackground ? 'showBackground' : ''} nav`}>
         <ul className="nav__list">
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
-            <Link to="/" className="nav__link">作者介紹</Link>
+            <Link to="/author" className="nav__link" onClick={navToggle} >作者介紹</Link>
           </li>
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
-            <Link to="/" className='nav__link'>角色介紹</Link>
+            <Link to="/characters" className='nav__link' onClick={navToggle} >角色介紹</Link>
           </li>
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
-            <Link to="/" className='nav__link'>貼圖介紹</Link>
+            <Link to="/stickers" className='nav__link' onClick={navToggle} >貼圖介紹</Link>
           </li>
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
-            <Link to="/" className='nav__link'>聯絡我們</Link>
+            <Link to="/contact" className='nav__link' onClick={navToggle} >聯絡我們</Link>
           </li>
         </ul>
       </nav>

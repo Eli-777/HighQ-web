@@ -1,5 +1,7 @@
+@import '../../base.style.scss';
+
 .homepage {
-  padding-top: 7rem;
+  padding-top: $header-height;
   width: 100%;
 
   &__img {
