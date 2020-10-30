@@ -1,0 +1,15 @@
+@import "../../base.style.scss";
+
+.characters {
+  padding-top: $header-height;
+
+  &__cards {
+    margin-bottom: 4rem;
+    padding: 1.2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+    justify-items: center;
+    gap: 2rem;
+  }
+
+}
