@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Homepage from './pages/homepage/Homepage'
 import AuthorPage from './pages/author/Author'
 import CharactersPage from './pages/characters/Characters'
+import StickersPage from './pages/stickers/Stickers'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
@@ -23,6 +24,9 @@ function App() {
           </Route>
           <Route path="/characters" exact={true}>
             <CharactersPage />
+          </Route>
+          <Route path="/stickers" exact={true}>
+            <StickersPage />
           </Route>
         </Switch>
 

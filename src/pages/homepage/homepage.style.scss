@@ -1,7 +1,6 @@
 @import '../../base.style.scss';
 
 .homepage {
-  padding-top: $header-height;
   width: 100%;
 
   &__img {
@@ -14,7 +13,6 @@
 
   &__post {
     width: 100%;
-    margin-bottom: 4rem;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
 

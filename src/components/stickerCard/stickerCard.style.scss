@@ -1,0 +1,28 @@
+.sticker {
+  &__card {
+    width: 12rem;
+    height: 12rem;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 .4rem .8rem .4rem rgba(black, .2);
+    cursor: pointer;
+
+    &.theme {
+      height: 18rem;
+    }
+
+    &:hover {
+      transform: translateY(-1rem);
+
+      &:active {
+        transform: translateY(0rem);
+      }
+    }
+  }
+
+  
+
+  &__img {
+    width: 100%;
+  }
+}

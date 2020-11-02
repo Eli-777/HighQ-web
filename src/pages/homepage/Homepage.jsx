@@ -45,7 +45,7 @@ function Homepage(props) {
 
   return (
     
-    <div className="homepage">
+    <div className="homepage pageContainer">
       <div className="homepage__img" />
       <h1 className="title">最新貼文</h1>
       <div className="homepage__post">
