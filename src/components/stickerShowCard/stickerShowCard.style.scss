@@ -1,0 +1,120 @@
+@import "../../base.style.scss";
+
+.stickerShowCard {
+  border: 1px solid black;
+  position: fixed;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  height: 52rem;
+  display: flex;
+  flex-direction: column;
+
+  border-radius: 5px;
+  box-shadow: 0 .4rem .8rem .8rem rgba($color-black, .3);
+
+
+  .background {
+    width: 200%;
+    height: 200vh;
+    background-color: rgba($color-black, 0.8);
+    position: fixed;
+    top: -20rem;
+    left: -20rem;
+    z-index: -1;
+  }
+
+  .left-side {
+    width: 100%;
+    overflow-y: scroll;
+    border-radius: 0 0 5px 5px;
+    &__img {
+      width: 100%;
+      display: block;
+      
+    }
+  }
+
+  .right-side {
+    order: -1;
+    width: 100%;
+    background-color: $color-primary;
+    color: $color-white;
+
+    display: grid;
+    gap: 2rem;
+    padding: 0 2rem 2rem 2rem;
+
+    .close-btn {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 0.6;
+      justify-self: end;
+
+      padding-top: 2rem;
+      cursor: pointer;
+
+      &:hover {
+        color: $color-second-light-1;
+      }
+    }
+
+    &__title {
+      justify-self: start;
+      font-size: 3.2rem;
+    }
+
+    &__author {
+      font-size: 2rem;
+      a {
+        color: white;
+        font-style: italic;
+      }
+    }
+
+    &__description {
+      font-size: 1.6rem;
+    }
+
+    &__price {
+      font-size: 4rem;
+      font-weight: 500;
+      justify-self: center;
+    }
+
+    &__button {
+      background-color: $color-second;
+      color: currentColor;
+      font-weight: 500;
+      font-size: 2rem;
+      padding: 0.8rem;
+      justify-self: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+
+      &:hover {
+        background-color: $color-second-dark;
+        animation: btnScale 0.8s ease-out infinite;
+      }
+    }
+  }
+}
+
+
+@keyframes btnScale {
+  0% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+// * {
+//   border: 1px solid #000;
+// }
