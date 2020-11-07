@@ -5,6 +5,7 @@ import Homepage from './pages/homepage/Homepage'
 import AuthorPage from './pages/author/Author'
 import CharactersPage from './pages/characters/Characters'
 import StickersPage from './pages/stickers/Stickers'
+import ContactPage from './pages/contact/Contact'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
@@ -27,6 +28,9 @@ function App() {
           </Route>
           <Route path="/stickers" exact={true}>
             <StickersPage />
+          </Route>
+          <Route path="/contact" exact={true}>
+            <ContactPage />
           </Route>
         </Switch>
 

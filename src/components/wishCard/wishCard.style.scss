@@ -1,0 +1,15 @@
+@import '../../base.style.scss';
+
+.wishCard {
+  background-color: rgba($color-white, .8);
+  box-shadow: 0 .2rem .8rem .4rem rgba($color-black, .2);
+  padding: 1.2rem;
+  border-radius: 5px;
+
+  display: grid;
+  gap: 2rem;
+
+  &__date {
+    justify-self: end;
+  }
+}
