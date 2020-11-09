@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 
+import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
+import { SiTiktok } from 'react-icons/si';
+
 import WishCard from '../../components/wishCard/WishCard'
 import WishForm from '../../components/wishFrom/WishForm'
+import SocialLink from '../../components/socialLink/SocialLink'
 
 import './contact.style.scss'
 import DummyData from './contact.dummyData'
@@ -57,12 +61,16 @@ function Contact(props) {
       <div className="contact__socialMedia">
         <h2 className="title-2">合作邀約</h2>
         <p className="contact__content">
-          有任何問題、合作活動邀約歡迎來信或私訊ig<br/>
+          有任何問題、合作活動邀約歡迎來信或私訊ig<br />
           信箱：fireguns0903@gmaiil.com
         </p>
-        <div className="contact__link">
-
-        </div>
+        <ul className="contact__links">
+          <SocialLink mediaName="FB" account="HighQman" website="https://www.facebook.com/HighQman" icon={FaFacebookF} />
+          <SocialLink mediaName="IG" account="HighQ_ig" website="https://www.instagram.com/highq_ig/" icon={FaInstagram} />
+          <SocialLink mediaName="Tiktok" account="highq0903" website="https://www.tiktok.com/@highq0903?lang=en" icon={SiTiktok} />
+          <SocialLink mediaName="抖音" account="highQ776" website="https://www.facebook.com/HighQman" icon={SiTiktok} />
+          <SocialLink mediaName="YouTube" account="聽HighQ說幹畫" website="https://www.youtube.com/channel/UCimb03Z3R6F4nYJNAVOArGA/featured" icon={FaYoutube} />
+        </ul>
       </div>
     </div>
   );

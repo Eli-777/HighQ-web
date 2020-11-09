@@ -33,4 +33,16 @@
 
   }
 
+  &__socialMedia {
+    margin: 2rem;
+    font-size: 2rem;
+  }
+
+  &__links {
+    margin-top: 2rem;
+    display: grid;
+    gap: .8rem;
+  }
+
 }
+

@@ -1,0 +1,36 @@
+@import "../../base.style.scss";
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  color: $color-primary;
+  font-weight: 700;
+
+  p {
+    width: 28rem;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+
+    &:hover {
+      color: $color-primary-light-1;
+      animation: shaking 0.4s ease infinite;
+    }
+  }
+}
+
+@keyframes shaking {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(45deg);
+  }
+
+  100% {
+    transform: rotate(-45deg);
+  }
+}
