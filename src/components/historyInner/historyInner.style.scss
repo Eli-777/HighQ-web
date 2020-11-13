@@ -1,0 +1,41 @@
+@import '../../base.style.scss';
+
+.history {
+  &__inner {
+    display: flex;
+  }
+
+  &__month {
+    padding-top: 2rem;
+    color: $color-tertiary;
+    font-size: 2.4rem;
+    font-weight: 700;
+    flex: 1;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+
+    border-right: 2px solid $color-tertiary;
+
+
+    &::before {
+      content: "";
+      width: 2rem;
+      height: 2rem;
+      background-color: $color-tertiary-light-1;
+      border-radius: 50%;
+      position: absolute;
+      right: 0;
+      transform: translate(50%, 35%);
+    }
+  }
+
+  &__leftParts {
+    display: flex;
+    padding-left: 2rem;
+    padding-top: 8rem;
+    flex: 3;
+    flex-direction: column;
+  }
+}

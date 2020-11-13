@@ -1,6 +1,7 @@
 import React from 'react';
 
 import authorImg from  '../../assets/author.svg'
+import History from '../../components/history/History'
 import './author.style.scss'
 
 function Author(props) {
@@ -15,6 +16,7 @@ function Author(props) {
       </div>
 
       <h1 className="title">歷史沿革</h1>
+      <History />
     </div>
   );
 }

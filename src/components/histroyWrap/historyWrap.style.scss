@@ -1,0 +1,21 @@
+@import '../../base.style.scss';
+
+.history {
+
+  &__year {
+    padding: .8rem 1.6rem;
+    background-color: $color-primary;
+    color: $color-second;
+    font-size: 2rem;
+
+    position: sticky;
+    top: 7rem;
+    z-index: 20;
+  }
+
+  &__tick {
+    transform: rotate(90deg);
+    display: inline-block;
+  }
+
+}

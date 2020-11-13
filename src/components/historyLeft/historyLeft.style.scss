@@ -1,0 +1,52 @@
+@import '../../base.style.scss';
+
+.history {
+  &__left {
+    padding-bottom: 4rem;
+
+    //todo: 畫面變大時要反轉的設定
+    // &.history {
+    //   // background-color: orange;
+    //   transform: translateX(-105%);
+      
+    //   .history__desc {
+    //     flex-direction: row-reverse;
+    //   }
+    // }
+  }
+
+  &__desc {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $color-primary;
+
+    display: flex;
+
+    &::before {
+      content: "";
+      min-width: 2rem;
+      height: .4rem;
+      background-color: $color-tertiary;
+      border-radius: 5px;
+      display: block;
+      margin-right: 1.2rem;
+      margin-top: 1.2rem;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+
+    img {
+      max-width: 50%;
+      max-height: 20rem;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 .4rem 2rem .4rem rgba($color-black, .2);
+    }
+  }
+  
+}
