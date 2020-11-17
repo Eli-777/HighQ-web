@@ -1,7 +1,6 @@
 @import "../../base.style.scss";
 
 .stickerShowCard {
-  border: 1px solid black;
   position: fixed;
   top: 55%;
   left: 50%;
@@ -43,7 +42,7 @@
     color: $color-white;
 
     display: grid;
-    gap: 2rem;
+    gap: 1.2rem;
     padding: 0 2rem 2rem 2rem;
 
     .close-btn {
@@ -62,11 +61,11 @@
 
     &__title {
       justify-self: start;
-      font-size: 3.2rem;
+      font-size: 2.8rem;
     }
 
     &__author {
-      font-size: 2rem;
+      font-size: 1.6rem;
       a {
         color: white;
         font-style: italic;
@@ -74,11 +73,11 @@
     }
 
     &__description {
-      font-size: 1.6rem;
+      font-size: 1.2rem;
     }
 
     &__price {
-      font-size: 4rem;
+      font-size: 2.8rem;
       font-weight: 500;
       justify-self: center;
     }
@@ -87,7 +86,7 @@
       background-color: $color-second;
       color: currentColor;
       font-weight: 500;
-      font-size: 2rem;
+      font-size: 1.6rem;
       padding: 0.8rem;
       justify-self: center;
 
@@ -115,6 +114,3 @@
   }
 }
 
-// * {
-//   border: 1px solid #000;
-// }

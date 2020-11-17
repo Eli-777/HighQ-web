@@ -3,7 +3,7 @@
 .footer {
   margin-top: 4rem;
 
-  background-color: $color-grey-dark;
+  background-color: $color-primary;
   padding: 2rem 0;
   font-size: 1.6rem;
   color: $color-white;
@@ -49,16 +49,16 @@
         color: $color-white;
 
         &.fb {
-          color: $color-black;
+          color: $color-second;
         }
         &.ig {
-          color: $color-black;
+          color: $color-second;
         }
         &.tiktok {
-          color: $color-black;
+          color: $color-second;
         }
         &.youtube {
-          color: $color-black;
+          color: $color-second;
         }
       }
     }

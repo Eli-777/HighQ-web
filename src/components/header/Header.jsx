@@ -29,6 +29,9 @@ function Header(props) {
       <nav className={`${showBackground ? 'showBackground' : ''} nav`}>
         <ul className="nav__list">
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
+            <Link to="/" className="nav__link" onClick={navToggle} >最新貼文</Link>
+          </li>
+          <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>
             <Link to="/author" className="nav__link" onClick={navToggle} >作者介紹</Link>
           </li>
           <li className={`${showBackground ? 'showBackground' : ''} nav__item `}>

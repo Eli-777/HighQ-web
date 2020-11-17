@@ -1,6 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
+import UseScrollToTop from './effects/use-reStoreScrollTop.effects'
+
 import Homepage from './pages/homepage/Homepage'
 import AuthorPage from './pages/author/Author'
 import CharactersPage from './pages/characters/Characters'
@@ -12,11 +14,15 @@ import Footer from './components/footer/Footer'
 import './App.css';
 
 function App() {
+
   return (
     <Router>
+
       <div className="App">
         <Header />
+        <UseScrollToTop />
         <Switch>
+
           <Route path="/" exact={true}>
             <Homepage />
           </Route>
