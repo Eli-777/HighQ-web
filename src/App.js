@@ -11,7 +11,7 @@ import ContactPage from './pages/contact/Contact'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 
-import './App.css';
+import './main.style.scss';
 
 function App() {
 

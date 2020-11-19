@@ -55,7 +55,9 @@ function Contact(props) {
           </div>
         </div>
 
-        <WishForm handleChange={handleChange} handleSubmit={handleSubmit} form={form} />
+        <div className="contact__wishForms">
+          <WishForm handleChange={handleChange} handleSubmit={handleSubmit} form={form} />
+        </div>
       </div>
 
       <div className="contact__socialMedia">

@@ -1,4 +1,4 @@
-@import "../../base.style.scss";
+@import "../../main.style.scss";
 
 .characters {
 
@@ -9,6 +9,10 @@
     grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
     justify-items: center;
     gap: 2rem;
+
+    @include respond(tab-port) {
+      margin: 8rem;
+    }
   }
 
 }

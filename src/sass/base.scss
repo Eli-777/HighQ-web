@@ -1,0 +1,68 @@
+@import '../sass/variables.scss';
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;  /* 10 / 16 = 62.5%  1rem = 10px */
+
+  @include respond(tab-port) {
+    font-size: 75%;  /* 12 / 16 = 75%  1rem = 12px */
+  }
+  @include respond(tab-land) {
+    font-size: 87.5%;  /* 14 / 16 = 87.5%  1rem = 14px */
+  }
+  @include respond(desktop) {
+    font-size: 75%;  /* 12 / 16 = 75%  1rem = 12px */
+  }
+}
+
+body {
+  font-family: "Open Sans Condensed";
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+.btn {
+  outline: none;
+}
+
+input,
+textarea {
+  outline: none;
+}
+
+/******/
+
+.title {
+  margin: 2rem;
+  font-size: 4rem;
+  text-align: center;
+}
+
+.title-2 {
+  margin: 2rem;
+  font-size: 3.2rem;
+  text-align: center;
+}
+
+.pageContainer {
+  padding-top: $header-height;
+
+  @include respond(desktop) {
+    padding-top: $header-height-1200px;
+  }
+}

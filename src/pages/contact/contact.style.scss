@@ -1,4 +1,4 @@
-@import "../../base.style.scss";
+@import "../../main.style.scss";
 
 .contact {
   &__wishContent {
@@ -12,6 +12,10 @@
       object-fit: cover;
       height: 50vh;
       opacity: .4;
+
+      @include respond(tab-land) {
+        height: 80vh;
+      }
     }
   }
 
@@ -23,6 +27,10 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    @include respond(tab-land) {
+      height: 80vh;
+    }
   }
 
   &__wishCards {
@@ -31,11 +39,25 @@
     display: grid;
     gap: 2rem;
 
+    @include respond(tab-land) {
+      padding: 0 10rem;
+    }
   }
+
+  &__wishForms {
+    @include respond(tab-land) {
+      padding:  2rem 6rem;
+    }
+  }
+
 
   &__socialMedia {
     margin: 2rem;
     font-size: 2rem;
+    
+    @include respond(tab-port) {
+      padding: 0 10rem;
+    }
   }
 
   &__links {

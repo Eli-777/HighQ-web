@@ -1,4 +1,4 @@
-@import "../../base.style.scss";
+@import "../../main.style.scss";
 
 .contact__wishForm {
   margin: 2rem 0;
@@ -9,6 +9,10 @@
   display: grid;
   grid-template-rows: repeat(5, max-content);
   gap: 2rem;
+
+  @include respond(tab-port) {
+    padding: 2rem 6rem;
+  }
 }
 
 .form {

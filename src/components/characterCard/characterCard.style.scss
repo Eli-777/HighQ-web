@@ -1,4 +1,4 @@
-@import "../../base.style.scss";
+@import "../../main.style.scss";
 
 @mixin backgroundColor($color-1, $color-2) {
   background-image: linear-gradient(to bottom, $color-1, $color-2);
@@ -50,10 +50,15 @@
     align-items: center;
 
     .character__content {
-      padding: 6rem 4rem;
+      padding: 2.8rem 4rem;
 
       display: grid;
       gap: 2rem;
+      align-content: center;
+
+      @include respond(tab-port) {
+        padding: 3.6rem 4rem 0rem 4rem;
+      }
 
       &--name {
         font-size: 2.8rem;
@@ -85,5 +90,4 @@
       @include backgroundColor($color-white, $color-second-light-1);
     }
   }
-
 }

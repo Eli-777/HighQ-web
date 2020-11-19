@@ -1,4 +1,4 @@
-@import "../../base.style.scss";
+@import "../../main.style.scss";
 
 @mixin itemBackgroundAnimation($color, $delay) {
   background-image: linear-gradient(
@@ -14,6 +14,15 @@
   }
 }
 
+@mixin noAnimation {
+  background-image: linear-gradient(120deg, transparent 0%, transparent 100%);
+  background-size: 100%;
+
+  &.showBackground {
+    animation: none;
+  }
+}
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -22,7 +31,7 @@
   height: 7rem;
   width: 100%;
   background-color: $color-white;
-  box-shadow: 0 .2rem .8rem .2rem rgba($color-black, .2);
+  box-shadow: 0 0.2rem 0.8rem 0.2rem rgba($color-black, 0.2);
   z-index: 1000;
 
   &__icon {
@@ -86,6 +95,10 @@
 
     &.showBackground + .nav__background {
       transform: scale(80);
+
+      @include respond(tab-port) {
+        transform: scale(100);
+      }
     }
 
     //icon animation
@@ -165,13 +178,16 @@
         @include itemBackgroundAnimation(rgba($color-purple-light, 0.7), 0.6s);
       }
       &:nth-of-type(5) {
-        @include itemBackgroundAnimation(rgba($color-tertiary-light-1, 0.7), 0.8s);
+        @include itemBackgroundAnimation(
+          rgba($color-tertiary-light-1, 0.7),
+          0.8s
+        );
       }
 
       &:hover {
         font-size: 5.6rem;
         font-weight: 900;
-        text-shadow: 0rem 0rem 1.2rem rgba($color-brown-light, .8);
+        text-shadow: 0rem 0rem 1.2rem rgba($color-brown-light, 0.8);
       }
     }
 
@@ -188,6 +204,96 @@
       opacity: 1;
       width: 100%;
       transform: translate(-50%, -50%);
+    }
+  }
+
+  @include respond(desktop) {
+    height: 6rem;
+
+    &__icon {
+      &,
+      &-link {
+        width: 4rem;
+        height: 4rem;
+      }
+    }
+
+    .nav__button {
+      display: none;
+    }
+
+    .nav__background {
+      display: none;
+    }
+
+    .nav {
+      & > * {
+        all: initial;
+      }
+
+      position: static;
+      transform: none;
+      opacity: 1;
+      width: 100%;
+      height: 100%;
+      transition: none;
+
+      display: flex;
+      align-items: center;
+
+      &__list {
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr repeat(5, minmax(max-content, 1fr));
+      }
+
+      &__item {
+        display: flex;
+        justify-content: center;
+        cursor: auto;
+
+        &.showBackground {
+          display: flex;
+          justify-content: center;
+        }
+
+        &:nth-of-type(1) {
+          @include noAnimation;
+          grid-column: 2 /3;
+        }
+        &:nth-of-type(2) {
+          @include noAnimation;
+        }
+        &:nth-of-type(3) {
+          @include noAnimation;
+        }
+        &:nth-of-type(4) {
+          @include noAnimation;
+        }
+        &:nth-of-type(5) {
+          @include noAnimation;
+        }
+
+        &:hover {
+          text-shadow: none;
+        }
+      }
+
+      &__link {
+        color: $color-primary;
+        font-size: 2rem;
+        font-weight: 500;
+        letter-spacing: 0.8rem;
+        display: block;
+        width: fit-content;
+        height: 100%;
+        padding: 0rem;
+      }
+
+      //the end of the nav
+      &.showBackground {
+        transform: translate(0%, 0%);
+      }
     }
   }
 }

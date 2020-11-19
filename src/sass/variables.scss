@@ -1,4 +1,4 @@
-
+@import './mixins.scss';
 $color-primary: #242F40;
 // $color-primary-light-3: #526178;
 // $color-primary-light-2: #C7D5EC;
@@ -29,19 +29,5 @@ $linear-gradient-fb: linear-gradient(to top, #016de4 50%, #18acfe 100%);
 
 $header-height: 7rem;
 
+$header-height-1200px: 6rem;
 
-.title {
-  margin: 2rem;
-  font-size: 4rem;
-  text-align: center;
-}
-
-.title-2 {
-  margin: 2rem;
-  font-size: 3.2rem;
-  text-align: center;
-}
-
-.pageContainer {
-  padding-top: $header-height;
-}

@@ -26,7 +26,6 @@ const useScrollToTop = () => {
   useEffect(() => {
     return function unmount() {
       let scrollY = window.scrollY
-      console.log(pathname, scrollY, window.scrollY)
       sessionStorage.setItem(pathname, scrollY)
 
       setIsGoBack(false)
