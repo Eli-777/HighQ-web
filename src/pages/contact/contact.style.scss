@@ -42,11 +42,19 @@
     @include respond(tab-land) {
       padding: 0 10rem;
     }
+
+    @include respond(desktop) {
+      padding:  2rem 24rem;
+    }
   }
 
   &__wishForms {
     @include respond(tab-land) {
       padding:  2rem 6rem;
+    }
+
+    @include respond(desktop) {
+      padding:  2rem 12rem;
     }
   }
 
@@ -57,6 +65,12 @@
     
     @include respond(tab-port) {
       padding: 0 10rem;
+    }
+
+    @include respond(desktop) {
+      h2 {
+        margin-left: 0;
+      }
     }
   }
 

@@ -57,6 +57,11 @@ textarea {
   margin: 2rem;
   font-size: 3.2rem;
   text-align: center;
+
+  @include respond(desktop) {
+    text-align: start;
+    margin-left: 12rem;
+  }
 }
 
 .pageContainer {

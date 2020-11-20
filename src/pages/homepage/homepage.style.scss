@@ -9,6 +9,14 @@
     background-image: url(./../../assets/home-page-long-image.jpg);
     background-size: cover;
     background-position: 50%;
+
+    @include respond(desktop) {
+      width: 70%;
+      height: 25vw;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
   }
 
   &__post {

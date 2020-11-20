@@ -14,16 +14,32 @@
   gap: 3rem 0;
   justify-items: center;
 
+  @include respond(desktop) {
+    grid-template-columns: 1fr 40rem;
+  }
+
 
   &__nav {
     font-size: 3rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     gap: 1.2rem;
 
+    @include respond(desktop) {
+      grid-template-columns: repeat(4, minmax(max-content, 1fr));
+      align-items: center;
+      justify-items: center;
+      gap: 2.8rem;
+      width: 100%;
+    }
     
     &--link {
       color: currentColor;
+
+      @include respond(desktop) {
+        &:hover {
+          color: rgba($color-second, .7);
+        }
+      }
     }
   }
 

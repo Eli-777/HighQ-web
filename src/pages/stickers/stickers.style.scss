@@ -1,7 +1,6 @@
+@import "../../main.style.scss";
 
 .stickers {
-
-
   &__cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
@@ -9,5 +8,10 @@
     justify-items: center;
 
     padding: 2rem;
+
+    @include respond(desktop) {
+      justify-items: start;
+      margin: 0 12rem;
+    }
   }
 }

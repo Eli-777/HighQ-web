@@ -11,7 +11,11 @@
   flex-direction: column;
 
   border-radius: 5px;
-  box-shadow: 0 .4rem .8rem .8rem rgba($color-black, .3);
+  box-shadow: 0 0.4rem 0.8rem 0.8rem rgba($color-black, 0.3);
+
+  @include respond(tab-port) {
+    width: 60vw;
+  }
 
   @include respond(tab-land) {
     width: 72vw;
@@ -19,6 +23,10 @@
     flex-direction: row;
   }
 
+  @include respond(desktop) {
+    width: 50vw;
+    height: 70vh;
+  }
 
   .background {
     width: 200%;
@@ -28,6 +36,12 @@
     top: -20rem;
     left: -20rem;
     z-index: -1;
+
+    @include respond(desktop) {
+      width: 250%;
+      top: -50rem;
+      left: -50rem;
+    }
   }
 
   .left-side {
@@ -41,6 +55,11 @@
 
     @include respond(tab-land) {
       order: -1;
+      background-color: $color-white;
+    }
+
+    @include respond(desktop) {
+      border-radius:  5px 0 0 5px;
     }
   }
 
@@ -49,6 +68,7 @@
     width: 100%;
     background-color: $color-primary;
     color: $color-white;
+    border-radius:  5px 5px 0 0;
 
     display: grid;
     gap: 1.2rem;
@@ -57,6 +77,10 @@
     @include respond(tab-land) {
       padding: 0 2rem 2rem 2rem;
       gap: 0.4rem;
+    }
+
+    @include respond(desktop) {
+      border-radius:  0 5px 5px 0;
     }
 
     .close-btn {
@@ -126,7 +150,6 @@
   }
 }
 
-
 @keyframes btnScale {
   0% {
     transform: scale(1.2);
@@ -136,4 +159,3 @@
     transform: scale(1);
   }
 }
-
