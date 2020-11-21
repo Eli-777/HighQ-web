@@ -19,12 +19,12 @@ function HistoryLeft({ leftItem }) {
     <div className={`${type} history__left`}  >
       <dl>
         <dt>
-          <p className="history__desc" data-aos="fade-left">
+          <p className="history__desc" data-aos={ type === 'history' ? "fade-right" : "fade-left"}>
             {desc}
           </p>
         </dt>
         <dd>
-          <div className="history__img" data-aos="fade-left" data-aos-delay="500">
+          <div className="history__img" data-aos={ type === 'history' ? "fade-right" : "fade-left"} data-aos-delay="500">
             {
               img ? <img src={img} alt="Sticker img" />
                 : ''

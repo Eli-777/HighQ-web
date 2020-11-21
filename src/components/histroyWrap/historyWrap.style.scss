@@ -9,8 +9,12 @@
     font-size: 2rem;
 
     position: sticky;
-    top: 7rem;
+    top: $header-height;
     z-index: 20;
+
+    @include respond(desktop) {
+      top: $header-height-1200px;
+    }
   }
 
   &__tick {

@@ -3,6 +3,7 @@
 .history {
   &__inner {
     display: flex;
+    overflow: hidden;
   }
 
   &__month {
@@ -37,5 +38,16 @@
     padding-top: 8rem;
     flex: 3;
     flex-direction: column;
+  }
+
+  @include respond(desktop) {
+    &__month {
+      padding-right: 2rem; 
+      justify-content: flex-end; 
+    }
+  
+    &__leftParts {
+      flex: 1; 
+    }
   }
 }

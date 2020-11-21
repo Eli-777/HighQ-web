@@ -1,18 +1,21 @@
-@import '../../main.style.scss';
+@import "../../main.style.scss";
 
 .history {
   &__left {
     padding-bottom: 4rem;
 
-    //todo: 畫面變大時要反轉的設定
-    // &.history {
-    //   // background-color: orange;
-    //   transform: translateX(-105%);
-      
-    //   .history__desc {
-    //     flex-direction: row-reverse;
-    //   }
-    // }
+    @include respond(desktop) {
+      &.history {
+        transform: translateX(-106%);
+
+        .history__desc {
+          flex-direction: row-reverse;
+          &::before {
+            margin-left: 1.2rem;
+          }
+        }
+      }
+    }
   }
 
   &__desc {
@@ -25,7 +28,7 @@
     &::before {
       content: "";
       min-width: 2rem;
-      height: .4rem;
+      height: 0.4rem;
       background-color: $color-tertiary;
       border-radius: 5px;
       display: block;
@@ -45,8 +48,7 @@
       max-height: 20rem;
       object-fit: cover;
       border-radius: 10px;
-      box-shadow: 0 .4rem 2rem .4rem rgba($color-black, .2);
+      box-shadow: 0 0.4rem 2rem 0.4rem rgba($color-black, 0.2);
     }
   }
-  
 }

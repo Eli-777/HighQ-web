@@ -19,4 +19,26 @@
   &__img {
     width: 50vw;
   }
+
+  @include respond(desktop) {
+    padding-top: $header-height-1200px;
+    
+    &__intro {
+      grid-template-columns: repeat(2, max-content);
+      grid-template-rows: max-content;
+      justify-content: center;
+  
+      &--phrase {
+        line-height: 2;
+        font-size: 2rem;
+        grid-row: 1 / 2;
+      }
+    }
+  
+    &__img {
+      height: 100%;
+      width: 30rem;
+      grid-column: 2 / 3;
+    }
+  }
 }
