@@ -21,6 +21,9 @@ html {
   @include respond(desktop) {
     font-size: 75%;  /* 12 / 16 = 75%  1rem = 12px */
   }
+  @include respond(big-desktop) {
+    font-size: 100%;  /* 16 / 16 = 100%  1rem = 16px */
+  }
 }
 
 body {
@@ -69,5 +72,12 @@ textarea {
 
   @include respond(desktop) {
     padding-top: $header-height-1200px;
+  }
+}
+
+.max-width-big-desktop {
+  @include respond(big-desktop) {
+    width: 1800px;
+    margin: 0 auto;
   }
 }

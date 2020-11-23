@@ -7,7 +7,7 @@ import './characters.style.scss'
 
 function Characters(props) {
   return (
-    <div className="characters pageContainer">
+    <div className="characters pageContainer max-width-big-desktop">
       <h1 className="title">角色介紹</h1>
       <div className="characters__cards">
         {

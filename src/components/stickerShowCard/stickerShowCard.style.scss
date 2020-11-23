@@ -59,7 +59,7 @@
     }
 
     @include respond(desktop) {
-      border-radius:  5px 0 0 5px;
+      border-radius: 5px 0 0 5px;
     }
   }
 
@@ -68,7 +68,7 @@
     width: 100%;
     background-color: $color-primary;
     color: $color-white;
-    border-radius:  5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
 
     display: grid;
     gap: 1.2rem;
@@ -80,7 +80,7 @@
     }
 
     @include respond(desktop) {
-      border-radius:  0 5px 5px 0;
+      border-radius: 0 5px 5px 0;
     }
 
     .close-btn {
@@ -145,6 +145,29 @@
       &:hover {
         background-color: $color-second-dark;
         animation: btnScale 0.8s ease-out infinite;
+      }
+    }
+
+    @include respond(big-desktop) {
+      &__title {
+        font-size: 4rem; 
+      }
+
+      &__author {
+        font-size: 2.8rem; 
+      }
+
+      &__description {
+        font-size: 2.4rem; 
+      }
+
+      &__price {
+        font-size: 4rem; 
+      }
+
+      &__button {
+        font-size: 2.8rem; 
+        padding: 1.2rem; 
       }
     }
   }

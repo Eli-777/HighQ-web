@@ -22,7 +22,7 @@ function Stickers(props) {
 
 
   return (
-    <div className="stickers pageContainer">
+    <div className="stickers pageContainer max-width-big-desktop">
       <h1 className="title">貼圖介紹</h1>
       <h2 className="title-2">貼圖</h2>
       <div className="stickers__cards">

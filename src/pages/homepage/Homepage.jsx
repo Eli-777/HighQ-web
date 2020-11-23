@@ -8,7 +8,7 @@ import './homepage.style.scss'
 
 
 function Homepage(props) {
-  const postImg = ["https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/122028545_4550235388381455_8025810323506480456_o.jpg?_nc_cat=101&ccb=2&_nc_sid=9267fe&_nc_ohc=i9uU0NGHB0cAX97MC_Q&_nc_ht=scontent.ftpe7-4.fna&oh=0309a03fc9ec98b0f52b4c6bcddc0718&oe=5FB7E4B6", "https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/s720x720/122108722_4541024049302589_1077783461789502700_o.jpg?_nc_cat=111&ccb=2&_nc_sid=9267fe&_nc_ohc=Fd9vR0gYSxsAX963vn4&_nc_ht=scontent.ftpe7-3.fna&tp=7&oh=2a042c5b3667da87db6d0147921ae65a&oe=5FB919D5", "https://scontent.ftpe7-4.fna.fbcdn.net/v/t1.0-9/p843x403/121482151_4533918766679784_1477410593858017263_o.jpg?_nc_cat=105&ccb=2&_nc_sid=9267fe&_nc_ohc=Yz9qUtSs4hcAX_KHZx2&_nc_ht=scontent.ftpe7-4.fna&tp=6&oh=87ab3989ef9d9681f606f3b5ed8a11d1&oe=5FB7EBD1"]
+  const postImg = ["https://scontent.ftpe8-3.fna.fbcdn.net/v/t1.0-9/126038911_4690800110991648_3093960423680730619_o.jpg?_nc_cat=106&ccb=2&_nc_sid=2d5d41&_nc_ohc=g08D3HDgxRQAX-GvUA0&_nc_ht=scontent.ftpe8-3.fna&oh=a10ccdae22e387a0fc7583edf465354f&oe=5FDFDF1D", "https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/s720x720/122108722_4541024049302589_1077783461789502700_o.jpg?_nc_cat=111&ccb=2&_nc_sid=9267fe&_nc_ohc=Fd9vR0gYSxsAX963vn4&_nc_ht=scontent.ftpe7-3.fna&tp=7&oh=2a042c5b3667da87db6d0147921ae65a&oe=5FB919D5", "https://scontent.ftpe8-2.fna.fbcdn.net/v/t1.0-9/s960x960/125844113_4673300106074982_2578869759710400219_o.jpg?_nc_cat=103&ccb=2&_nc_sid=2d5d41&_nc_ohc=415Ijzmns8cAX9fZSss&_nc_ht=scontent.ftpe8-2.fna&tp=7&oh=342269576dc0f4752db800d4403c2189&oe=5FDEB1EF"]
 
   const fake = {
     cards: [
@@ -45,7 +45,7 @@ function Homepage(props) {
 
   return (
     
-    <div className="homepage pageContainer">
+    <div className="homepage pageContainer max-width-big-desktop">
       <div className="homepage__img" />
       <h1 className="title">最新貼文</h1>
       <div className="homepage__post">

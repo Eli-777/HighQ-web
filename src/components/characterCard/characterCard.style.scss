@@ -136,4 +136,18 @@
       transform: rotateY(0deg);
     }
   }
+
+  @include respond(big-desktop) {
+    height: 48rem;
+    width: 32rem;
+
+    .card__side {
+      &--front {
+        .characterImg {
+          width: 190%;
+          transform: scale(0.55) translate(-40%, -25%); 
+        }
+      }
+    }
+  }
 }

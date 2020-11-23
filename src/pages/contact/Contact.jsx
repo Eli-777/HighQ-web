@@ -45,7 +45,7 @@ function Contact(props) {
         <div className="contact__wishContent">
           <img src="https://images.unsplash.com/photo-1562778612-e1e0cda9915c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80" alt="WishCards background" className="contact__wishContent--background" />
           <div className="contact__wishCardsContainer">
-            <div className="contact__wishCards">
+            <div className="contact__wishCards max-width-big-desktop">
               {
                 cards.map((data) => {
                   return <WishCard key={data.id} data={data} />
@@ -55,12 +55,12 @@ function Contact(props) {
           </div>
         </div>
 
-        <div className="contact__wishForms">
+        <div className="contact__wishForms max-width-big-desktop">
           <WishForm handleChange={handleChange} handleSubmit={handleSubmit} form={form} />
         </div>
       </div>
 
-      <div className="contact__socialMedia">
+      <div className="contact__socialMedia max-width-big-desktop">
         <h2 className="title-2">合作邀約</h2>
         <p className="contact__content">
           有任何問題、合作活動邀約歡迎來信或私訊ig<br />

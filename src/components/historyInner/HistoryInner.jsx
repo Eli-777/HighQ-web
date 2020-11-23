@@ -7,7 +7,7 @@ import './historyInner.style.scss'
 
 function HistoryInner({ inner }) {
   return (
-    <div className="history__inner">
+    <div className="history__inner max-width-big-desktop">
       <p className="history__month">{inner.month}月</p>
       <div className="history__leftParts">
         {

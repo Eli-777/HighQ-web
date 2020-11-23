@@ -9,7 +9,9 @@ function HistoryWrap({ history }) {
   return (
     <div className="history__wrap">
       <div className="history__year">
-        <h1>{history.year}  <span className="history__tick">&#187;</span> </h1>
+        <div className="max-width-big-desktop">
+          <h1>{history.year}  <span className="history__tick">&#187;</span> </h1>
+        </div>
       </div>
 
       {

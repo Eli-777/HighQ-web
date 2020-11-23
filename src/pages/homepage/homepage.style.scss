@@ -1,7 +1,11 @@
-@import '../../main.style.scss';
+@import "../../main.style.scss";
 
 .homepage {
   width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &__img {
     width: 100%;
@@ -13,9 +17,11 @@
     @include respond(desktop) {
       width: 70%;
       height: 25vw;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+    }
+
+    @include respond(big-desktop) {
+      width: 120rem;
+      height: 45rem;
     }
   }
 
