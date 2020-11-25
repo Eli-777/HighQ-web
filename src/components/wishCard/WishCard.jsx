@@ -4,7 +4,7 @@ import './wishCard.style.scss'
 
 function WishCard({ data }) {
   return (
-    <div className="wishCard">
+    <div className="wishCard" id={data.id}>
       <h3 className="wishCard__id">ID：{data.isPublic === 'true' ? data.name : '***'}</h3>
 
       <p className="wishCard__content">

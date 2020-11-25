@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import UseScrollToTop from './effects/use-reStoreScrollTop.effects'
 
@@ -17,36 +17,34 @@ import './main.style.scss';
 function App() {
 
   return (
-    <Router>
-      <div className="App">
-        <Header />
-        <UseScrollToTop />
-        <Switch>
+    <div className="App">
+      <Header />
+      <UseScrollToTop />
+      
+      <Switch>
+        <Route path="/" exact={true}>
+          <Homepage />
+        </Route>
+        <Route path="/author" exact={true}>
+          <AuthorPage />
+        </Route>
+        <Route path="/characters" exact={true}>
+          <CharactersPage />
+        </Route>
+        <Route path="/stickers" exact={true}>
+          <StickersPage />
+        </Route>
+        <Route path="/contact" exact={true}>
+          <ContactPage />
+        </Route>
 
-          <Route path="/" exact={true}>
-            <Homepage />
-          </Route>
-          <Route path="/author" exact={true}>
-            <AuthorPage />
-          </Route>
-          <Route path="/characters" exact={true}>
-            <CharactersPage />
-          </Route>
-          <Route path="/stickers" exact={true}>
-            <StickersPage />
-          </Route>
-          <Route path="/contact" exact={true}>
-            <ContactPage />
-          </Route>
+        <Route to="*" >
+          <NotFound />
+        </Route>
+      </Switch>
 
-          <Route to="*" >
-            <NotFound />
-          </Route>
-        </Switch>
-
-        <Footer />
-      </div>
-    </Router>
+      <Footer />
+    </div>
   );
 }
 
