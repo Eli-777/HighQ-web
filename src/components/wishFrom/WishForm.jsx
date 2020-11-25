@@ -1,5 +1,7 @@
 import React from 'react';
 
+import CustomButton from '../custom-button/CustomButton'
+
 import './wishForm.style.scss'
 
 function WishForm({ handleChange, handleSubmit, form }) {
@@ -32,7 +34,7 @@ function WishForm({ handleChange, handleSubmit, form }) {
       </div>
 
       <div className="form__group">
-        <button className="form__button">送 出 意 見</button>
+        <CustomButton isFormButton>送 出 意 見</CustomButton>
       </div>
 
     </form>

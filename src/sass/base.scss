@@ -27,6 +27,13 @@ html {
   }
 }
 
+#root,
+html,
+body,
+.App {
+  height: 100%;
+}
+
 body {
   font-family: "Open Sans Condensed";
 }
@@ -81,4 +88,9 @@ textarea {
     width: 1800px;
     margin: 0 auto;
   }
+}
+
+.App {
+  display: grid;
+  grid-template-rows: 1fr auto;
 }

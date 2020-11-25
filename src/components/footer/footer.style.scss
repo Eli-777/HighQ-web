@@ -81,6 +81,18 @@
         }
       }
     }
+  }
 
+  &__admin {
+    color: $color-white;
+    letter-spacing: .8rem;
+
+    display: flex;
+    align-items: center;
+
+    &--link {
+      color: currentColor;
+      margin-left: 1.2rem;
+    }
   }
 }

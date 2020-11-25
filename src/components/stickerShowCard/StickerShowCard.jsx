@@ -4,7 +4,6 @@ import './stickerShowCard.style.scss'
 
 function StickerShowCard({ toggleShowCard, selectedSticker }) {
 
-  const img = `https://i.imgur.com/gJ3PZS4.jpg`
   return (
     <div className="stickerShowCard">
       <div className="background" onClick={toggleShowCard} />
