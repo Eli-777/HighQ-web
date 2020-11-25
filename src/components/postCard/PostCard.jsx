@@ -20,7 +20,8 @@ function PostCard({ media, mediaIcon, photo, date, link, style }) {
         {fetchMediaIcon(mediaIcon)}
         <div className="card__date">{date}</div>
       </div>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+      <a href={link} target="_blank" rel="noopener noreferrer" className="card__photo--link">
+        <p>點此詳看貼文</p> 
         <img src={photo} alt="Post" className="card__photo" />
       </a>
     </div>

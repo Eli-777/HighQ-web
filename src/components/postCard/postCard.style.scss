@@ -1,7 +1,5 @@
 @import "../../main.style.scss";
 
-
-
 .card {
   border: 1px solid #000;
   display: flex;
@@ -9,11 +7,9 @@
   align-items: center;
   border-radius: 1rem;
   overflow: hidden;
-  box-shadow: 0 .2rem 1rem rgba($color-black, .5);
-
+  box-shadow: 0 0.2rem 1rem rgba($color-black, 0.5);
 
   animation: showCards 1s both;
-
 
   &__header {
     width: 100%;
@@ -32,7 +28,7 @@
 
   &__icon {
     font-size: 2rem;
-    
+
     &.fb {
       background-color: transparent;
     }
@@ -45,9 +41,46 @@
 
   &__photo {
     width: 100%;
+    height: 100%;
+    transition: all 0.5s ease;
+
+    &--link {
+      height: 100%;
+      overflow: hidden;
+      transition: all 0.5s 0.1s;
+      
+      @include respond(desktop) {
+        &:hover {
+          background-color: $color-primary;
+  
+          .card__photo {
+            opacity: 0.1;
+            transform: scale(1.5);
+          }
+  
+          p {
+            opacity: 1;
+          }
+        }
+      }
+      
+
+      p {
+        width: 100%;
+        text-align: center;
+        font-size: 3rem;
+        font-weight: 500;
+        color: $color-white;
+        -webkit-text-stroke: 1px $color-primary;
+        text-shadow: 0px 0px 6px rgba($color-white,0.7);
+        
+        position: absolute;
+        top: 50%;
+        opacity: 0;
+      }
+    }
   }
 }
-
 
 @keyframes showCards {
   0% {
@@ -60,5 +93,3 @@
     opacity: 1;
   }
 }
-
-
