@@ -1,10 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { connect } from 'react-redux'
+import { addWishCard } from '../../redux/wishCard/wishCard.action.js'
 
 import CustomButton from '../custom-button/CustomButton'
 
 import './wishForm.style.scss'
 
-function WishForm({ handleChange, handleSubmit, form }) {
+function WishForm({ addWishCard }) {
+  const [form, setForm] = useState({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
+
+  function handleSubmit(event) {
+    event.preventDefault()
+
+    addWishCard(form)
+    setForm({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
+  }
+
+
+
+  function handleChange(event) {
+    const { value, name } = event.target
+    setForm({ ...form, [name]: value })
+  }
 
   return (
     <form className="contact__wishForm" onSubmit={handleSubmit}>
@@ -41,4 +58,12 @@ function WishForm({ handleChange, handleSubmit, form }) {
   );
 }
 
-export default WishForm;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    addWishCard: (form) => {
+      dispatch(addWishCard(form))
+    }
+  }
+}
+
+export default connect(null, mapDispatchToProps)(WishForm);

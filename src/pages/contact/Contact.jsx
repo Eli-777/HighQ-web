@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux'
+import { getWishCard } from '../../redux/wishCard/wishCard.action'
 
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
@@ -8,35 +10,13 @@ import WishForm from '../../components/wishFrom/WishForm'
 import SocialLink from '../../components/socialLink/SocialLink'
 
 import './contact.style.scss'
-import DummyData from './contact.dummyData'
 
-function Contact(props) {
-  const [form, setForm] = useState({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
-  const [cards, setCards] = useState(DummyData)
+function Contact({ wishCards, getWishCard }) {
 
-  async function handleSubmit(event) {
-    try {
-      event.preventDefault()
-      const time = new Date()
-      const stringTime = time.toDateString()
-      setForm({ createTime: '5' })
-      console.log(stringTime)
+  useEffect(() => {
+    getWishCard()
+  }, [getWishCard])
 
-      setCards([{ ...form, id: 'wish000' + (cards.length + 1), createTime: stringTime }, ...cards])
-      setForm({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
-      console.log(cards)
-
-    } catch (error) {
-      console.log(error)
-    }
-  }
-
-
-
-  function handleChange(event) {
-    const { value, name } = event.target
-    setForm({ ...form, [name]: value })
-  }
   return (
     <div className="contact pageContainer">
       <h1 className="title">聯絡我們</h1>
@@ -47,8 +27,8 @@ function Contact(props) {
           <div className="contact__wishCardsContainer">
             <div className="contact__wishCards max-width-big-desktop">
               {
-                cards.map((data) => {
-                  return <WishCard key={data.id} data={data} />
+                wishCards.map((wishCard) => {
+                  return <WishCard key={wishCard.id} wishCard={wishCard} />
                 })
               }
             </div>
@@ -56,7 +36,7 @@ function Contact(props) {
         </div>
 
         <div className="contact__wishForms max-width-big-desktop">
-          <WishForm handleChange={handleChange} handleSubmit={handleSubmit} form={form} />
+          <WishForm />
         </div>
       </div>
 
@@ -78,4 +58,18 @@ function Contact(props) {
   );
 }
 
-export default Contact;
+const mapStateToProps = (state) => {
+  return {
+    wishCards: state.wishCard.wishCards
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getWishCard: () => {
+      dispatch(getWishCard())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Contact);

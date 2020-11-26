@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { connect } from 'react-redux'
+import { getSticker } from '../../redux/sticker/sticker.action'
 
 import StickerCard from '../../components/stickerCard/StickerCard'
 import StickerShowCard from '../../components/stickerShowCard/StickerShowCard'
 
 import './stickers.style.scss'
-import { stickers, emojis, themes } from './dummyStickers'
 
-function Stickers(props) {
-  const [showCard, setShowCard] = useState(false)
+function Stickers({ stickers, emojis, themes, getSticker }) {
+  const [isShowCard, setIsShowCard] = useState(false)
   const [selectedSticker, setSelectedSticker] = useState('')
 
   function toggleShowCard() {
-    setShowCard(!showCard)
+    setIsShowCard(!isShowCard)
   }
 
   function selectedStickerInfo(sticker) {
@@ -19,7 +20,9 @@ function Stickers(props) {
     toggleShowCard()
   }
 
-
+  useEffect(() => {
+    getSticker()
+  }, [getSticker])
 
   return (
     <div className="stickers pageContainer max-width-big-desktop">
@@ -50,11 +53,27 @@ function Stickers(props) {
       </div>
 
       {
-        showCard ? <StickerShowCard toggleShowCard={toggleShowCard} selectedSticker={selectedSticker} /> : ''
+        isShowCard ? <StickerShowCard toggleShowCard={toggleShowCard} selectedSticker={selectedSticker} /> : ''
       }
 
     </div>
   );
 }
 
-export default Stickers;
+const mapStateToProps = (state) => {
+  return {
+    stickers: state.sticker.stickers,
+    emojis: state.sticker.emojis,
+    themes: state.sticker.themes,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getSticker: () => {
+      dispatch(getSticker())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Stickers);

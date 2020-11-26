@@ -2,15 +2,15 @@ import React from 'react';
 
 import './wishCard.style.scss'
 
-function WishCard({ data }) {
+function WishCard({ wishCard }) {
   return (
-    <div className="wishCard" id={data.id}>
-      <h3 className="wishCard__id">ID：{data.isPublic === 'true' ? data.name : '***'}</h3>
+    <div className="wishCard" id={wishCard.id}>
+      <h3 className="wishCard__id">ID：{wishCard.isPublic === 'true' ? wishCard.name : '***'}</h3>
 
       <p className="wishCard__content">
-        {data.text}
+        {wishCard.text}
       </p>
-      <div className="wishCard__date">時間：{data.createTime}</div>
+      <div className="wishCard__date">時間：{wishCard.createTime}</div>
     </div>
   );
 }

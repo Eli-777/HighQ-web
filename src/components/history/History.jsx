@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux'
 
 import HistoryWrap from '../../components/histroyWrap/HistoryWrap'
+import { getHistory } from '../../redux/history/history.action';
 
-import histories from './dummyHistory'
 
-function History(props) {
+function History({histories, getHistory}) {
+
+  useEffect(() => {
+    getHistory()
+  }, [getHistory])
+
   return (
     <div className="history">
       {
@@ -16,4 +22,18 @@ function History(props) {
   );
 }
 
-export default History;
+const mapStateToProps = (state) => {
+  return {
+    histories: state.history.histories
+  }
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getHistory: () => {
+      dispatch(getHistory())
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(History);

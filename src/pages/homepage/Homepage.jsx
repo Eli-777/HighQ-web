@@ -1,13 +1,13 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { setPostCards } from '../../redux/postCard/postCard.action'
+import { getPostCards } from '../../redux/postCard/postCard.action'
 
 import PostCard from '../../components/postCard/PostCard'
 
 import './homepage.style.scss'
 
 
-function Homepage({ postCards, setPostCards }) {
+function Homepage({ postCards, getPostCards }) {
 
   function generateAniDelay(index) {
     return {
@@ -16,8 +16,8 @@ function Homepage({ postCards, setPostCards }) {
   }
 
   useEffect(() => {
-    setPostCards()
-  }, [setPostCards])
+    getPostCards()
+  }, [getPostCards])
 
 
   return (
@@ -40,14 +40,14 @@ function Homepage({ postCards, setPostCards }) {
 
 const mapStateToProps = (state) => {
   return {
-    postCards: state.postCards.cards
+    postCards: state.postCard.cards
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setPostCards: () => {
-      dispatch(setPostCards())
+    getPostCards: () => {
+      dispatch(getPostCards())
     }
   }
 }

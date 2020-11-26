@@ -1,5 +1,5 @@
 const PostCardActionTypes = {
-  SET_POSTCARDS: 'SET_POSTCARDS'
+  GET_POSTCARDS: 'GET_POSTCARDS'
 }
 
 export default PostCardActionTypes
