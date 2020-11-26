@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/highq-web/static/css/main.df13a797.chunk.css",
-    "main.js": "/highq-web/static/js/main.338dc8d5.chunk.js",
-    "main.js.map": "/highq-web/static/js/main.338dc8d5.chunk.js.map",
-    "runtime-main.js": "/highq-web/static/js/runtime-main.95acbdfa.js",
-    "runtime-main.js.map": "/highq-web/static/js/runtime-main.95acbdfa.js.map",
-    "static/css/2.4707e12a.chunk.css": "/highq-web/static/css/2.4707e12a.chunk.css",
-    "static/js/2.b344169a.chunk.js": "/highq-web/static/js/2.b344169a.chunk.js",
-    "static/js/2.b344169a.chunk.js.map": "/highq-web/static/js/2.b344169a.chunk.js.map",
-    "index.html": "/highq-web/index.html",
-    "precache-manifest.a9b8930781ab40c0853fe9b23dedec03.js": "/highq-web/precache-manifest.a9b8930781ab40c0853fe9b23dedec03.js",
-    "service-worker.js": "/highq-web/service-worker.js",
-    "static/css/2.4707e12a.chunk.css.map": "/highq-web/static/css/2.4707e12a.chunk.css.map",
-    "static/css/main.df13a797.chunk.css.map": "/highq-web/static/css/main.df13a797.chunk.css.map",
-    "static/js/2.b344169a.chunk.js.LICENSE.txt": "/highq-web/static/js/2.b344169a.chunk.js.LICENSE.txt",
-    "static/media/author.svg": "/highq-web/static/media/author.b119eb94.svg",
-    "static/media/header.style.scss": "/highq-web/static/media/header-icon.69fff2f5.svg",
-    "static/media/homepage.style.scss": "/highq-web/static/media/home-page-long-image.e527901f.jpg"
+    "main.css": "/HighQ-web/static/css/main.844b3af0.chunk.css",
+    "main.js": "/HighQ-web/static/js/main.e11f89bc.chunk.js",
+    "main.js.map": "/HighQ-web/static/js/main.e11f89bc.chunk.js.map",
+    "runtime-main.js": "/HighQ-web/static/js/runtime-main.a40b751c.js",
+    "runtime-main.js.map": "/HighQ-web/static/js/runtime-main.a40b751c.js.map",
+    "static/css/2.4707e12a.chunk.css": "/HighQ-web/static/css/2.4707e12a.chunk.css",
+    "static/js/2.b344169a.chunk.js": "/HighQ-web/static/js/2.b344169a.chunk.js",
+    "static/js/2.b344169a.chunk.js.map": "/HighQ-web/static/js/2.b344169a.chunk.js.map",
+    "index.html": "/HighQ-web/index.html",
+    "precache-manifest.be63a8f095944ccd71bdfc6d5c51f1e2.js": "/HighQ-web/precache-manifest.be63a8f095944ccd71bdfc6d5c51f1e2.js",
+    "service-worker.js": "/HighQ-web/service-worker.js",
+    "static/css/2.4707e12a.chunk.css.map": "/HighQ-web/static/css/2.4707e12a.chunk.css.map",
+    "static/css/main.844b3af0.chunk.css.map": "/HighQ-web/static/css/main.844b3af0.chunk.css.map",
+    "static/js/2.b344169a.chunk.js.LICENSE.txt": "/HighQ-web/static/js/2.b344169a.chunk.js.LICENSE.txt",
+    "static/media/author.svg": "/HighQ-web/static/media/author.b119eb94.svg",
+    "static/media/header.style.scss": "/HighQ-web/static/media/header-icon.69fff2f5.svg",
+    "static/media/homepage.style.scss": "/HighQ-web/static/media/home-page-long-image.e527901f.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.95acbdfa.js",
+    "static/js/runtime-main.a40b751c.js",
     "static/css/2.4707e12a.chunk.css",
     "static/js/2.b344169a.chunk.js",
-    "static/css/main.df13a797.chunk.css",
-    "static/js/main.338dc8d5.chunk.js"
+    "static/css/main.844b3af0.chunk.css",
+    "static/js/main.e11f89bc.chunk.js"
   ]
 }
