@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a58a4425660951be6d88f907da3c8a32",
+    "revision": "b9c7ccc8b6e47e6b46644c573a87727a",
     "url": "/HighQ-web/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/css/2.4707e12a.chunk.css"
   },
   {
-    "revision": "fb7369f1bc45fb86bd89",
-    "url": "/HighQ-web/static/css/main.844b3af0.chunk.css"
+    "revision": "6e3b7945bdeb58ce487d",
+    "url": "/HighQ-web/static/css/main.77d53e8e.chunk.css"
   },
   {
     "revision": "859e1b6e9d82f1bc7c45",
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/js/2.b344169a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "fb7369f1bc45fb86bd89",
+    "revision": "6e3b7945bdeb58ce487d",
     "url": "/HighQ-web/static/js/main.ef302640.chunk.js"
   },
   {

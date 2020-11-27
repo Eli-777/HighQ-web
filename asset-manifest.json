@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/HighQ-web/static/css/main.844b3af0.chunk.css",
+    "main.css": "/HighQ-web/static/css/main.77d53e8e.chunk.css",
     "main.js": "/HighQ-web/static/js/main.ef302640.chunk.js",
     "main.js.map": "/HighQ-web/static/js/main.ef302640.chunk.js.map",
     "runtime-main.js": "/HighQ-web/static/js/runtime-main.a40b751c.js",
@@ -9,10 +9,10 @@
     "static/js/2.b344169a.chunk.js": "/HighQ-web/static/js/2.b344169a.chunk.js",
     "static/js/2.b344169a.chunk.js.map": "/HighQ-web/static/js/2.b344169a.chunk.js.map",
     "index.html": "/HighQ-web/index.html",
-    "precache-manifest.5e70cd432e0a0432c0a40fc1726b50a8.js": "/HighQ-web/precache-manifest.5e70cd432e0a0432c0a40fc1726b50a8.js",
+    "precache-manifest.9bce2c668d26c337509c64d87b35feed.js": "/HighQ-web/precache-manifest.9bce2c668d26c337509c64d87b35feed.js",
     "service-worker.js": "/HighQ-web/service-worker.js",
     "static/css/2.4707e12a.chunk.css.map": "/HighQ-web/static/css/2.4707e12a.chunk.css.map",
-    "static/css/main.844b3af0.chunk.css.map": "/HighQ-web/static/css/main.844b3af0.chunk.css.map",
+    "static/css/main.77d53e8e.chunk.css.map": "/HighQ-web/static/css/main.77d53e8e.chunk.css.map",
     "static/js/2.b344169a.chunk.js.LICENSE.txt": "/HighQ-web/static/js/2.b344169a.chunk.js.LICENSE.txt",
     "static/media/author.svg": "/HighQ-web/static/media/author.b119eb94.svg",
     "static/media/header.style.scss": "/HighQ-web/static/media/header-icon.69fff2f5.svg",
@@ -22,7 +22,7 @@
     "static/js/runtime-main.a40b751c.js",
     "static/css/2.4707e12a.chunk.css",
     "static/js/2.b344169a.chunk.js",
-    "static/css/main.844b3af0.chunk.css",
+    "static/css/main.77d53e8e.chunk.css",
     "static/js/main.ef302640.chunk.js"
   ]
 }
