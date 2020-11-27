@@ -138,13 +138,13 @@
   }
 
   @include respond(big-desktop) {
-    height: 48rem;
+    height: 38rem;
     width: 32rem;
 
     .card__side {
       &--front {
         .characterImg {
-          width: 190%;
+          width: 180%;
           transform: scale(0.55) translate(-40%, -25%); 
         }
       }
