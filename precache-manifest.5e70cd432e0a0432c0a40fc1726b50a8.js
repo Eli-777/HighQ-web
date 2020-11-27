@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "cb9f0e4067356d0b010e1754d03acf72",
+    "revision": "a58a4425660951be6d88f907da3c8a32",
     "url": "/HighQ-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/css/2.4707e12a.chunk.css"
   },
   {
-    "revision": "1f612a25470a0654e380",
+    "revision": "fb7369f1bc45fb86bd89",
     "url": "/HighQ-web/static/css/main.844b3af0.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/js/2.b344169a.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "1f612a25470a0654e380",
-    "url": "/HighQ-web/static/js/main.e11f89bc.chunk.js"
+    "revision": "fb7369f1bc45fb86bd89",
+    "url": "/HighQ-web/static/js/main.ef302640.chunk.js"
   },
   {
     "revision": "186f6725a6de8cc8b3ec",

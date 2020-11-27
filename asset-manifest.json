@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/HighQ-web/static/css/main.844b3af0.chunk.css",
-    "main.js": "/HighQ-web/static/js/main.e11f89bc.chunk.js",
-    "main.js.map": "/HighQ-web/static/js/main.e11f89bc.chunk.js.map",
+    "main.js": "/HighQ-web/static/js/main.ef302640.chunk.js",
+    "main.js.map": "/HighQ-web/static/js/main.ef302640.chunk.js.map",
     "runtime-main.js": "/HighQ-web/static/js/runtime-main.a40b751c.js",
     "runtime-main.js.map": "/HighQ-web/static/js/runtime-main.a40b751c.js.map",
     "static/css/2.4707e12a.chunk.css": "/HighQ-web/static/css/2.4707e12a.chunk.css",
     "static/js/2.b344169a.chunk.js": "/HighQ-web/static/js/2.b344169a.chunk.js",
     "static/js/2.b344169a.chunk.js.map": "/HighQ-web/static/js/2.b344169a.chunk.js.map",
     "index.html": "/HighQ-web/index.html",
-    "precache-manifest.be63a8f095944ccd71bdfc6d5c51f1e2.js": "/HighQ-web/precache-manifest.be63a8f095944ccd71bdfc6d5c51f1e2.js",
+    "precache-manifest.5e70cd432e0a0432c0a40fc1726b50a8.js": "/HighQ-web/precache-manifest.5e70cd432e0a0432c0a40fc1726b50a8.js",
     "service-worker.js": "/HighQ-web/service-worker.js",
     "static/css/2.4707e12a.chunk.css.map": "/HighQ-web/static/css/2.4707e12a.chunk.css.map",
     "static/css/main.844b3af0.chunk.css.map": "/HighQ-web/static/css/main.844b3af0.chunk.css.map",
@@ -23,6 +23,6 @@
     "static/css/2.4707e12a.chunk.css",
     "static/js/2.b344169a.chunk.js",
     "static/css/main.844b3af0.chunk.css",
-    "static/js/main.e11f89bc.chunk.js"
+    "static/js/main.ef302640.chunk.js"
   ]
 }
