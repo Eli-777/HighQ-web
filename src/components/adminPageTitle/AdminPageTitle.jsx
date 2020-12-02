@@ -6,16 +6,21 @@ import CustomButton from '../custom-button/CustomButton.jsx'
 
 import './adminPageTitle.style.scss'
 
-function AdminPageTitle({ title, addBottom, link }) {
+function AdminPageTitle({ title, addBottom, link, notShowAddButton }) {
   return (
     <div className="adminPageTitle admin-margin">
       <h1>{title}</h1>
-      <Link to={link}>
-        <CustomButton isAdminButton>
-          <RiAddBoxLine />
-          {addBottom}
-        </CustomButton>
-      </Link>
+      {
+        notShowAddButton ?
+          ''
+          :
+          <Link to={link}>
+            <CustomButton isAdminButton>
+              <RiAddBoxLine />
+              {addBottom}
+            </CustomButton>
+          </Link>
+      }
     </div>
   );
 }

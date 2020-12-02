@@ -9,6 +9,10 @@ import CharactersPage from './pages/characters/Characters'
 import StickersPage from './pages/stickers/Stickers'
 import ContactPage from './pages/contact/Contact'
 import AdminPage from './pages/admin/Admin'
+import AdminHistoryPage from './pages/adminHistory/AdminHistory'
+import AdminCharacterPage from './pages/adminCharacter/AdminCharacter'
+import AdminStickerPage from './pages/adminSticker/AdminSticker'
+import AdminWishCardPage from './pages/adminWishCard/AdminWishCard'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import NotFound from './components/notFound/NotFound'
@@ -17,11 +21,11 @@ import './main.style.scss';
 
 function App() {
   const adminHeader = [
-    { id: 'admin1', title: '管理最新貼文', link: '/admin/main' },
-    { id: 'admin2', title: '管理歷史沿革', link: '/admin/history' },
-    { id: 'admin3', title: '管理角色介紹', link: '/admin/character' },
-    { id: 'admin4', title: '管理貼圖介紹', link: '/admin/sticker' },
-    { id: 'admin5', title: '管理許願池清單', link: '/admin/wishCard' },
+    { id: 'admin1', title: '管理貼文', link: '/admin/main' },
+    { id: 'admin2', title: '管理歷史', link: '/admin/history' },
+    { id: 'admin3', title: '管理角色', link: '/admin/character' },
+    { id: 'admin4', title: '管理貼圖', link: '/admin/sticker' },
+    { id: 'admin5', title: '管理許願池', link: '/admin/wishCard' },
   ]
   const header = [
     { id: 'header1', title: '最新貼文', link: '/main' },
@@ -43,6 +47,18 @@ function App() {
           <Switch>
             <Route path="/admin/main" exact={true}>
               <AdminPage />
+            </Route>
+            <Route path="/admin/history" exact={true}>
+              <AdminHistoryPage />
+            </Route>
+            <Route path="/admin/character" exact={true}>
+              <AdminCharacterPage />
+            </Route>
+            <Route path="/admin/sticker" exact={true}>
+              <AdminStickerPage />
+            </Route>
+            <Route path="/admin/wishCard" exact={true}>
+              <AdminWishCardPage />
             </Route>
           </Switch>
         </Route>

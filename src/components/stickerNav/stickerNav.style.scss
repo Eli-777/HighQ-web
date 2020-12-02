@@ -1,0 +1,49 @@
+@import "../../main.style.scss";
+
+
+
+.stickerNav {
+  position: sticky;
+  top: 14rem;
+  z-index: 500;
+  background-color: $color-white;
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+  }
+
+  &__item {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__link {
+    display: block;
+    min-width: 10rem;
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 3rem;
+    letter-spacing: 1rem;
+    padding-left: 1rem;
+    transition: all 0.3s;
+    border-bottom: 3px solid $color-grey;
+    color: $color-grey;
+
+    &:hover {
+      @extend %activeStyle;
+    }
+
+    &.active {
+      @extend %activeStyle;
+    }
+  }
+}
+
+%activeStyle {
+  color: $color-second;
+  border-bottom: 3px solid $color-second;
+}
+
+

@@ -1,35 +1,35 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { getPostCards } from '../../redux/postCard/postCard.action.js'
+import { getCharacter } from '../../redux/character/character.action'
 
 import AdminPageTitle from '../../components/adminPageTitle/AdminPageTitle'
 import AdminTable from '../../components/adminTable/AdminTable'
 import AdminTableItem from '../../components/adminTableItem/AdminTableItem'
 
-function Admin(props) {
+function AdminCharacter(props) {
 
-  const postCards = useSelector((state) => state.postCard.cards)
+  const characters = useSelector((state) => state.character.characters)
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(getPostCards())
+    dispatch(getCharacter())
   }, [dispatch])
 
   const tableTitles = [
     '序列',
-    '來源',
-    '發布時間',
+    '角色名稱',
+    '角色介紹',
     '縮圖',
     '管理'
   ]
 
   return (
     <div className="pageContainer max-width-big-desktop">
-      <AdminPageTitle title="管理貼文" addBottom="新增貼文" link="/admin/main/add" />
+      <AdminPageTitle title="管理角色" addBottom="新增角色" link="/admin/character/add" />
       <AdminTable tableTitles={tableTitles}>
         {
-          postCards.map((postCard) => {
-            return <AdminTableItem key={postCard.id} tableTitles={tableTitles} td1={postCard.id} td2={postCard.media} td3={postCard.date} td4={postCard.photo}/>
+          characters.map((character, index) => {
+            return <AdminTableItem key={character.id} tableTitles={tableTitles} td1={index+1} td2={character.name} td3={character.intro.intro1} td4={character.characterImg} />
           })
         }
       </AdminTable>
@@ -37,4 +37,4 @@ function Admin(props) {
   );
 }
 
-export default Admin;
+export default AdminCharacter;
