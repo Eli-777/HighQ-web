@@ -1,0 +1,77 @@
+@import "../../main.style.scss";
+
+tr {
+  background-image: linear-gradient(
+    to right,
+    $color-second-light-1 20%,
+    $color-second-light-2 30%,
+    $color-white 35%
+  );
+  &:nth-of-type(even) {
+    background-image: linear-gradient(
+      to right,
+      $color-primary-light-1 20%,
+      $color-primary-light-2 30%,
+      $color-white 35%
+    );
+  }
+
+
+  td {
+    border: 1px solid $color-primary;
+    display: flex;
+    font-size: 2rem;
+    padding: 0.5rem;
+  
+    &::before {
+      content: attr(data-title);
+      display: inline-block;
+      min-width: 40%;
+      font-weight: 900;
+      padding-left: 0.5rem;
+    }
+  }
+
+  .table {
+    &__img {
+      height: 10rem;
+    }
+  
+    &__icon {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+
+  @include respond(desktop) {
+    background-image: none;
+    background-color: $color-grey;
+
+    &:nth-of-type(even) {
+      background-image: none;
+      background-color: $color-grey-dark;
+    }
+
+    &:hover {
+      background-color: $color-primary-light-1;
+    }
+
+    td {
+      border: none;
+      border-collapse: collapse;
+      display: table-cell;
+      text-align: center;
+  
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+
+
+
+
+

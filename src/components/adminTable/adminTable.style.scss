@@ -1,0 +1,54 @@
+@import '../../main.style.scss';
+
+.adminTable {
+  display: flex;
+  justify-content: center;
+
+  table {
+    width: 80vw;
+    border-spacing: 0 1rem ;
+
+    @include respond(big-desktop) {
+      width: 100rem;
+    }
+  }
+
+  thead {
+    display: none;
+  }
+
+
+  @include respond(desktop) {
+    table {
+      border-spacing: 0 1rem ;
+    }
+  
+    thead {
+      display: table-header-group;
+      
+      &::before {
+        content: "";
+        display: block;
+        width: 80vw;
+        height: 2rem;
+        background-color:$color-white;
+        position: fixed;
+        top: 13.9rem;
+
+        @include respond(big-desktop) {
+          top: 14rem;
+        }
+      }
+    }
+  
+  
+    th {
+      font-size: 2rem;
+      padding: 1rem;
+      background-color: $color-black;
+      color: $color-white;
+      position: sticky;
+      top: 15rem;
+    }
+  }
+}
