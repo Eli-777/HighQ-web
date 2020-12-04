@@ -9,6 +9,8 @@ import CharactersPage from './pages/characters/Characters'
 import StickersPage from './pages/stickers/Stickers'
 import ContactPage from './pages/contact/Contact'
 import AdminPage from './pages/admin/Admin'
+import AdminAddPage from './components/adminMainAdd/AdminMainAdd'
+import AdminEditPage from './components/adminMainEdit/AdminMainEdit'
 import AdminHistoryPage from './pages/adminHistory/AdminHistory'
 import AdminCharacterPage from './pages/adminCharacter/AdminCharacter'
 import AdminStickerPage from './pages/adminSticker/AdminSticker'
@@ -47,6 +49,12 @@ function App() {
           <Switch>
             <Route path="/admin/main" exact={true}>
               <AdminPage />
+            </Route>
+            <Route path="/admin/main/add" exact={true}>
+              <AdminAddPage title="新增貼文" submitButton="新增"/>
+            </Route>
+            <Route path="/admin/main/edit/:id" exact={true}>
+              <AdminEditPage />
             </Route>
             <Route path="/admin/history" exact={true}>
               <AdminHistoryPage />

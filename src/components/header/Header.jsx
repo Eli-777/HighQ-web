@@ -39,7 +39,7 @@ function Header({ type, admin }) {
             type.map((item) => {
               return (
                 <li className={`${showBackground ? 'showBackground' : ''}  nav__item `} key={item.id} >
-                  <Link to={item.link} className={`${pathname === item.link ? 'active' : ''} ${admin ? admin : ''} nav__link `} onClick={navToggle} >{item.title}</Link>
+                  <Link to={item.link} className={`${pathname === item.link ? 'active' : ''} nav__link `} onClick={navToggle} >{item.title}</Link>
                 </li>
               )
             })

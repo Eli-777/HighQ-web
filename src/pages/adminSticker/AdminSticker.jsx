@@ -45,7 +45,7 @@ function AdminSticker(props) {
 
   return (
     <div className="pageContainer max-width-big-desktop">
-      <AdminPageTitle title="管理貼圖" addBottom="新增貼圖" link="/admin/character/add" />
+      <AdminPageTitle title="管理貼圖" addBottom="新增貼圖" link="/admin/sticker/add" />
       <StickerNav query={queryText} />
       <AdminTable tableTitles={tableTitles}>
         {

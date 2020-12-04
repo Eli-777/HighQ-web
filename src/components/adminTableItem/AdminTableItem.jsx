@@ -1,11 +1,30 @@
 import React from 'react';
+import { useDispatch } from 'react-redux'
+import { deletePostCard } from '../../redux/postCard/postCard.action'
+import { useHistory } from 'react-router-dom'
 
 import CustomButton from '../custom-button/CustomButton'
 import { MdEdit, MdDelete } from 'react-icons/md'
 
+import { deleteWarning } from '../../effects/sweetAlert2.effects'
+
 import './adminTableItem.style.scss'
 
-function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard }) {
+function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id }) {
+  const dispatch = useDispatch()
+  const history = useHistory()
+
+  function handleDeleteClick(id) {
+    deleteWarning().then((result) => {
+      if (result.isConfirmed) {
+        dispatch(deletePostCard(id))
+      }
+    })
+  }
+
+  function handleEditClick(id) {
+    history.push(`/admin/main/edit/${id}`)
+  }
 
   return (
     <tr>
@@ -26,8 +45,8 @@ function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard }) {
 
       <td data-title={tableTitles[4]}>
         <div className="table__icon">
-          <CustomButton isAdminButton><MdEdit /></CustomButton>
-          <CustomButton isAdminButton><MdDelete /></CustomButton>
+          <CustomButton isAdminButton onClick={() => handleEditClick(id)}><MdEdit /></CustomButton>
+          <CustomButton isAdminButton onClick={() => handleDeleteClick(id)}><MdDelete /></CustomButton>
         </div>
       </td>
     </tr>

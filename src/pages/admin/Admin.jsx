@@ -28,8 +28,8 @@ function Admin(props) {
       <AdminPageTitle title="管理貼文" addBottom="新增貼文" link="/admin/main/add" />
       <AdminTable tableTitles={tableTitles}>
         {
-          postCards.map((postCard) => {
-            return <AdminTableItem key={postCard.id} tableTitles={tableTitles} td1={postCard.id} td2={postCard.media} td3={postCard.date} td4={postCard.photo}/>
+          postCards.map((postCard, index) => {
+            return <AdminTableItem key={postCard.id} tableTitles={tableTitles} td1={index + 1} td2={postCard.media} td3={postCard.date} td4={postCard.photo} id={postCard.id} />
           })
         }
       </AdminTable>
