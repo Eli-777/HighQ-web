@@ -29,7 +29,7 @@ function AdminCharacter(props) {
       <AdminTable tableTitles={tableTitles}>
         {
           characters.map((character, index) => {
-            return <AdminTableItem key={character.id} tableTitles={tableTitles} td1={index+1} td2={character.name} td3={character.intro.intro1} td4={character.characterImg} />
+            return <AdminTableItem key={character.id} tableTitles={tableTitles} td1={index+1} td2={character.name} td3={character.intro.intro1} td4={character.characterImg} id={character.id} page="character" />
           })
         }
       </AdminTable>

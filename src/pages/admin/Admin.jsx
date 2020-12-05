@@ -29,7 +29,7 @@ function Admin(props) {
       <AdminTable tableTitles={tableTitles}>
         {
           postCards.map((postCard, index) => {
-            return <AdminTableItem key={postCard.id} tableTitles={tableTitles} td1={index + 1} td2={postCard.media} td3={postCard.date} td4={postCard.photo} id={postCard.id} />
+            return <AdminTableItem key={postCard.id} tableTitles={tableTitles} td1={index + 1} td2={postCard.media} td3={postCard.date} td4={postCard.photo} id={postCard.id} page="main" />
           })
         }
       </AdminTable>

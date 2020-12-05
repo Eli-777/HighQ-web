@@ -10,7 +10,7 @@ function AdminCustomButton({ edit }) {
   const history = useHistory();
 
   function handleClick() {
-    history.push("/admin/main");
+    history.goBack();
   }
 
   return (

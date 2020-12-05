@@ -13,6 +13,8 @@ import AdminAddPage from './components/adminMainAdd/AdminMainAdd'
 import AdminEditPage from './components/adminMainEdit/AdminMainEdit'
 import AdminHistoryPage from './pages/adminHistory/AdminHistory'
 import AdminCharacterPage from './pages/adminCharacter/AdminCharacter'
+import AdminCharacterAddPage from './components/adminCharacterAdd/AdminCharacterAdd'
+import AdminCharacterEditPage from './components/adminCharacterEdit/AdminCharacterEdit'
 import AdminStickerPage from './pages/adminSticker/AdminSticker'
 import AdminWishCardPage from './pages/adminWishCard/AdminWishCard'
 import Header from './components/header/Header'
@@ -61,6 +63,12 @@ function App() {
             </Route>
             <Route path="/admin/character" exact={true}>
               <AdminCharacterPage />
+            </Route>
+            <Route path="/admin/character/add" exact={true}>
+              <AdminCharacterAddPage title="新增角色" submitButton="新增"/>
+            </Route>
+            <Route path="/admin/character/edit/:id" exact={true}>
+              <AdminCharacterEditPage />
             </Route>
             <Route path="/admin/sticker" exact={true}>
               <AdminStickerPage />

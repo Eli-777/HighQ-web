@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
 import { deletePostCard } from '../../redux/postCard/postCard.action'
+import { deleteCharacter } from '../../redux/character/character.action'
 import { useHistory } from 'react-router-dom'
 
 import CustomButton from '../custom-button/CustomButton'
@@ -10,20 +11,30 @@ import { deleteWarning } from '../../effects/sweetAlert2.effects'
 
 import './adminTableItem.style.scss'
 
-function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id }) {
+function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id, page }) {
   const dispatch = useDispatch()
   const history = useHistory()
 
   function handleDeleteClick(id) {
     deleteWarning().then((result) => {
       if (result.isConfirmed) {
-        dispatch(deletePostCard(id))
+        switch (page) {
+          case "main":
+            return dispatch(deletePostCard(id))
+          case "character":
+            return dispatch(deleteCharacter(id))
+
+          default: 
+            return
+        }
+           
+        
       }
     })
   }
 
   function handleEditClick(id) {
-    history.push(`/admin/main/edit/${id}`)
+    history.push(`/admin/${page}/edit/${id}`)
   }
 
   return (
