@@ -1,5 +1,9 @@
 const StickerActionTypes = {
   GET_STICKER: 'GET_STICKER',
+  GET_SINGLE_STICKER: 'GET_SINGLE_STICKER',
+  ADD_STICKER: 'ADD_STICKER',
+  DELETE_STICKER: 'DELETE_STICKER',
+  EDIT_STICKER: 'EDIT_STICKER'
 }
 
 export default StickerActionTypes

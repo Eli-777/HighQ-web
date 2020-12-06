@@ -16,6 +16,8 @@ import AdminCharacterPage from './pages/adminCharacter/AdminCharacter'
 import AdminCharacterAddPage from './components/adminCharacterAdd/AdminCharacterAdd'
 import AdminCharacterEditPage from './components/adminCharacterEdit/AdminCharacterEdit'
 import AdminStickerPage from './pages/adminSticker/AdminSticker'
+import AdminStickerAddPage from './components/adminStickerAdd/AdminStickerAdd'
+import AdminStickerEditPage from './components/adminStickerEdit/AdminStickerEdit'
 import AdminWishCardPage from './pages/adminWishCard/AdminWishCard'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
@@ -72,6 +74,12 @@ function App() {
             </Route>
             <Route path="/admin/sticker" exact={true}>
               <AdminStickerPage />
+            </Route>
+            <Route path="/admin/sticker/add" exact={true}>
+              <AdminStickerAddPage title="新增貼圖" submitButton="新增"/>
+            </Route>
+            <Route path="/admin/sticker/edit/:id" exact={true}>
+              <AdminStickerEditPage />
             </Route>
             <Route path="/admin/wishCard" exact={true}>
               <AdminWishCardPage />

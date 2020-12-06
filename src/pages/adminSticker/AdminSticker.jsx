@@ -11,12 +11,10 @@ import StickerNav from '../../components/stickerNav/StickerNav'
 function AdminSticker(props) {
 
   const { search } = useLocation()
-  const query = new URLSearchParams(search) 
-  const queryText = query.get('sticker') 
+  const query = new URLSearchParams(search)
+  const queryText = query.get('sticker')
 
   const stickers = useSelector((state) => state.sticker.stickers)
-  const emojis = useSelector((state) => state.sticker.emojis)
-  const themes = useSelector((state) => state.sticker.themes)
   const [selectStickers, setSelectStickers] = useState(stickers)
 
   const dispatch = useDispatch()
@@ -26,14 +24,14 @@ function AdminSticker(props) {
   }, [dispatch])
 
   useEffect(() => {
-    if (queryText === 'emoji') {
-      setSelectStickers(emojis)
-    } else if (queryText === 'theme') {
-      setSelectStickers(themes)
+    if (queryText) {
+      let otherTypeStickers = stickers.filter((sticker) => sticker.type === queryText)
+      setSelectStickers(otherTypeStickers)
     } else {
-      setSelectStickers(stickers)
+      let onlyStickers = stickers.filter((sticker) => sticker.type === 'sticker')
+      setSelectStickers(onlyStickers)
     }
-  }, [selectStickers, stickers, emojis, themes, queryText])
+  }, [stickers, queryText])
 
   const tableTitles = [
     '序列',
@@ -50,7 +48,7 @@ function AdminSticker(props) {
       <AdminTable tableTitles={tableTitles}>
         {
           selectStickers.map((sticker, index) => {
-            return <AdminTableItem key={sticker.id} tableTitles={tableTitles} td1={index + 1} td2={sticker.name} td3={sticker.price} td4={sticker.image.single} />
+            return <AdminTableItem key={sticker.id} tableTitles={tableTitles} td1={index + 1} td2={sticker.name} td3={sticker.price} td4={sticker.image.single} id={sticker.id} page="sticker" />
           })
         }
       </AdminTable>

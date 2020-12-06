@@ -7,7 +7,7 @@ import StickerShowCard from '../../components/stickerShowCard/StickerShowCard'
 
 import './stickers.style.scss'
 
-function Stickers({ stickers, emojis, themes, getSticker }) {
+function Stickers({ stickers, getSticker }) {
   const [isShowCard, setIsShowCard] = useState(false)
   const [selectedSticker, setSelectedSticker] = useState('')
 
@@ -23,6 +23,11 @@ function Stickers({ stickers, emojis, themes, getSticker }) {
   useEffect(() => {
     getSticker()
   }, [getSticker])
+  
+  let onlyStickers = stickers.filter((sticker) => sticker.type === 'sticker')
+  let emojis = stickers.filter((sticker) => sticker.type === 'emoji')
+  let themes = stickers.filter((sticker) => sticker.type === 'theme')
+  
 
   return (
     <div className="stickers pageContainer max-width-big-desktop">
@@ -30,7 +35,7 @@ function Stickers({ stickers, emojis, themes, getSticker }) {
       <h2 className="title-2">貼圖</h2>
       <div className="stickers__cards">
         {
-          stickers.map((sticker) => {
+          onlyStickers.map((sticker) => {
             return <StickerCard key={sticker.id} image={sticker.image.single} selectedStickerInfo={() => selectedStickerInfo(sticker)} />
           })
         }
@@ -63,8 +68,8 @@ function Stickers({ stickers, emojis, themes, getSticker }) {
 const mapStateToProps = (state) => {
   return {
     stickers: state.sticker.stickers,
-    emojis: state.sticker.emojis,
-    themes: state.sticker.themes,
+    // emojis: state.sticker.emojis,
+    // themes: state.sticker.themes,
   }
 }
 
