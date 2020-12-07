@@ -30,7 +30,7 @@ function AdminWishCard(props) {
       <AdminTable tableTitles={tableTitles}>
         {
           wishCards.map((wishCard, index) => {
-            return <AdminTableItem key={wishCard.id} tableTitles={tableTitles} td1={index + 1} td2={wishCard.name} td3={wishCard.text} td4={wishCard.createTime} isWishCard />
+            return <AdminTableItem key={wishCard.id} tableTitles={tableTitles} td1={index + 1} td2={wishCard.name} td3={wishCard.text} td4={wishCard.createTime} isWishCard id={wishCard.id} page="wishCard" />
           })
         }
       </AdminTable>

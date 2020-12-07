@@ -5,6 +5,7 @@ import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
 import FromSelectInput from '../formSelectInput/FormSelectInput'
+import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
 import { NoInput, addSuccess, saveWarning } from '../../effects/sweetAlert2.effects'
@@ -101,7 +102,7 @@ function AdminStickerAdd({ selectedSticker, title, submitButton, edit }) {
         <FromGroupInput name="單張貼圖" id="single" value={form.image && form.image.single ? form.image.single : ''} onChange={handleChange} />
         <FromGroupInput name="全部貼圖" id="together" value={form.image && form.image.together ? form.image.together : ''} onChange={handleChange} />
         <FromGroupInput name="購買連結" id="link" value={form.link} onChange={handleChange} />
-        <FromGroupInput name="描述" id="description" value={form.description} onChange={handleChange} />
+        <FormTextareaInput name="描述" id="description" value={form.description} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />
 

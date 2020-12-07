@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux'
 import { deletePostCard } from '../../redux/postCard/postCard.action'
 import { deleteCharacter } from '../../redux/character/character.action'
 import { deleteSticker } from '../../redux/sticker/sticker.action'
+import { deleteWishCard } from '../../redux/wishCard/wishCard.action'
 import { useHistory } from 'react-router-dom'
 
 import CustomButton from '../custom-button/CustomButton'
@@ -26,6 +27,8 @@ function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id, page 
             return dispatch(deleteCharacter(id))
           case "sticker":
             return dispatch(deleteSticker(id))
+          case "wishCard":
+            return dispatch(deleteWishCard(id))
 
           default:
             return

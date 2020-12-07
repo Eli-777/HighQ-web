@@ -8,3 +8,27 @@ export const addFormToWishCards = (form, wishCardslength, wishCards) => {
   }
   return [form, ...wishCards]
 }
+
+export const deleteWishCard = (selectId, wishCards) => {
+  let filteredWishCards = wishCards.filter(wishCard =>
+    wishCard.id !== selectId
+  )
+  return filteredWishCards
+}
+
+export const fetchSingleWishCard = (selectId, wishCards) => {
+  let selectedWishCard = wishCards.find(wishCard =>
+    wishCard.id === selectId
+  )
+  return selectedWishCard
+}
+
+export const editWishCard = (form, wishCards) => {
+  let editWishCard = wishCards.map(wishCard =>
+    wishCard.id === form.id ?
+      { ...wishCard, ...form }
+      :
+      wishCard
+  )
+  return editWishCard
+}

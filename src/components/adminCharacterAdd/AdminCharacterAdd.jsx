@@ -4,6 +4,7 @@ import { addCharacter, editCharacter } from '../../redux/character/character.act
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
+import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
 import { NoInput, addSuccess, saveWarning } from '../../effects/sweetAlert2.effects'
@@ -66,8 +67,8 @@ function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
         <h1 className="adminAdd__title">{title}</h1>
         <FromGroupInput name="角色名稱" id="name" value={form.name} onChange={handleChange} />
         <FromGroupInput name="角色照片" id="characterImg" value={form.characterImg} onChange={handleChange} />
-        <FromGroupInput name="角色介紹1" id="intro1" value={form.intro && form.intro.intro1 ? form.intro.intro1 : ''} onChange={handleChange} />
-        <FromGroupInput name="角色介紹2" id="intro2" value={form.intro && form.intro.intro2 ? form.intro.intro2 : ''} onChange={handleChange} />
+        <FormTextareaInput name="角色介紹1" id="intro1" value={form.intro && form.intro.intro1 ? form.intro.intro1 : ''} onChange={handleChange} />
+        <FormTextareaInput name="角色介紹2" id="intro2" value={form.intro && form.intro.intro2 ? form.intro.intro2 : ''} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />
 

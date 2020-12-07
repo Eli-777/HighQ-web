@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { addWishCard } from '../../redux/wishCard/wishCard.action.js'
 
 import CustomButton from '../custom-button/CustomButton'
+import { NoInput, blankWarning } from '../../effects/sweetAlert2.effects'
 
 import './wishForm.style.scss'
 
@@ -11,6 +12,17 @@ function WishForm({ addWishCard }) {
 
   function handleSubmit(event) {
     event.preventDefault()
+
+    if (!form.name) {
+      NoInput('名稱')
+      return
+    } else if (!form.text) {
+      NoInput('留言')
+      return
+    } else if (form.text.trim() === '') {
+      blankWarning()
+      return
+    }
 
     addWishCard(form)
     setForm({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })

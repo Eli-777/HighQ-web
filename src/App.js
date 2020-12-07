@@ -19,6 +19,7 @@ import AdminStickerPage from './pages/adminSticker/AdminSticker'
 import AdminStickerAddPage from './components/adminStickerAdd/AdminStickerAdd'
 import AdminStickerEditPage from './components/adminStickerEdit/AdminStickerEdit'
 import AdminWishCardPage from './pages/adminWishCard/AdminWishCard'
+import AdminWishCardEdit from './components/adminWishCardEdit/AdminWishCardEdit'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import NotFound from './components/notFound/NotFound'
@@ -83,6 +84,9 @@ function App() {
             </Route>
             <Route path="/admin/wishCard" exact={true}>
               <AdminWishCardPage />
+            </Route>
+            <Route path="/admin/wishCard/edit/:id" exact={true}>
+              <AdminWishCardEdit />
             </Route>
           </Switch>
         </Route>

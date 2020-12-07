@@ -17,7 +17,7 @@ function AdminMainEdit(props) {
 
   return (
     <div>
-      <AdminCharacterAddPage selectedCharacter={selectedCharacter} title="編輯貼文" submitButton="儲存" edit/>
+      <AdminCharacterAddPage selectedCharacter={selectedCharacter} title="編輯角色" submitButton="儲存" edit/>
     </div>
   );
 }
