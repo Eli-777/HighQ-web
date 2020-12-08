@@ -28,12 +28,10 @@ function AdminHistory(props) {
       <AdminPageTitle title="管理歷史" addBottom="新增歷史" link="/admin/history/add" />
       <AdminTable tableTitles={tableTitles}>
         {
-          histories.map((years) => {
-            return years.inner.map((month) => {
-              return month.left.map((event) => {
-                return <AdminTableItem key={event.id} tableTitles={tableTitles} td1={event.date} td2={event.type} td3={event.desc} td4={event.img} />
-              })
-            })
+          histories.map((history) => {
+            let type = history.type === 'product' ? "產品" : "事件"
+            
+            return <AdminTableItem key={history.id} tableTitles={tableTitles} td1={history.date} td2={type} td3={history.desc} td4={history.img} id={history.id} page="history" />
           })
         }
       </AdminTable>

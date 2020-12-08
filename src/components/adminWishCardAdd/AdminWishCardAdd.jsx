@@ -71,7 +71,7 @@ function AdminWishCardAdd({ selectedWishCard, title, submitButton }) {
           <option value="false">匿名</option>
         </FromSelectInput>
         <FromGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
-        <FromGroupInput name="信箱" id="email" value={form.email} onChange={handleChange} />
+        <FromGroupInput name="信箱" id="email" type="email" value={form.email} onChange={handleChange} />
         <FormTextareaInput name="留言" id="text" value={form.text} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />

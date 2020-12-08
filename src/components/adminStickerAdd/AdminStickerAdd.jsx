@@ -98,7 +98,7 @@ function AdminStickerAdd({ selectedSticker, title, submitButton, edit }) {
           <option value="theme">主題</option>
         </FromSelectInput>
         <FromGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
-        <FromGroupInput name="價格" id="price" value={form.price} onChange={handleChange} />
+        <FromGroupInput name="價格" id="price" type="number" value={form.price} onChange={handleChange} />
         <FromGroupInput name="單張貼圖" id="single" value={form.image && form.image.single ? form.image.single : ''} onChange={handleChange} />
         <FromGroupInput name="全部貼圖" id="together" value={form.image && form.image.together ? form.image.together : ''} onChange={handleChange} />
         <FromGroupInput name="購買連結" id="link" value={form.link} onChange={handleChange} />

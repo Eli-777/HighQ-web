@@ -1,6 +1,7 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
 import { deletePostCard } from '../../redux/postCard/postCard.action'
+import { deleteHistory } from '../../redux/history/history.action'
 import { deleteCharacter } from '../../redux/character/character.action'
 import { deleteSticker } from '../../redux/sticker/sticker.action'
 import { deleteWishCard } from '../../redux/wishCard/wishCard.action'
@@ -23,6 +24,8 @@ function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id, page 
         switch (page) {
           case "main":
             return dispatch(deletePostCard(id))
+          case "history":
+            return dispatch(deleteHistory(id))
           case "character":
             return dispatch(deleteCharacter(id))
           case "sticker":

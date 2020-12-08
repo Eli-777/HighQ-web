@@ -12,6 +12,8 @@ import AdminPage from './pages/admin/Admin'
 import AdminAddPage from './components/adminMainAdd/AdminMainAdd'
 import AdminEditPage from './components/adminMainEdit/AdminMainEdit'
 import AdminHistoryPage from './pages/adminHistory/AdminHistory'
+import AdminHistoryAddPage from './components/adminHistoryAdd/AdminHistoryAdd'
+import AdminHistoryEditPage from './components/adminHistoryEdit/AdminHistoryEdit'
 import AdminCharacterPage from './pages/adminCharacter/AdminCharacter'
 import AdminCharacterAddPage from './components/adminCharacterAdd/AdminCharacterAdd'
 import AdminCharacterEditPage from './components/adminCharacterEdit/AdminCharacterEdit'
@@ -63,6 +65,12 @@ function App() {
             </Route>
             <Route path="/admin/history" exact={true}>
               <AdminHistoryPage />
+            </Route>
+            <Route path="/admin/history/add" exact={true}>
+              <AdminHistoryAddPage title="新增歷史" submitButton="新增"/>
+            </Route>
+            <Route path="/admin/history/edit/:id" exact={true}>
+              <AdminHistoryEditPage />
             </Route>
             <Route path="/admin/character" exact={true}>
               <AdminCharacterPage />
