@@ -1,0 +1,30 @@
+.adminLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  &__platform {
+    border-radius: 20px;
+    padding: 2rem;
+    margin: 2rem;
+    max-width: 40rem;
+    box-shadow: 0rem 1.2rem 2rem rgba(black, .2);
+  }
+
+  &__image {
+    display: flex;
+    justify-content: center;
+    margin: 0.8rem;
+
+    img {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
+
+  &__title {
+    font-size: 4rem;
+    text-align: center;
+  }
+}

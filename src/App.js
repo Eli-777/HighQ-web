@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import UseScrollToTop from './effects/use-reStoreScrollTop.effects'
+import { auth } from './firebase/firebase.utils'
 
 import Homepage from './pages/homepage/Homepage'
 import AuthorPage from './pages/author/Author'
@@ -22,9 +23,11 @@ import AdminStickerAddPage from './components/adminStickerAdd/AdminStickerAdd'
 import AdminStickerEditPage from './components/adminStickerEdit/AdminStickerEdit'
 import AdminWishCardPage from './pages/adminWishCard/AdminWishCard'
 import AdminWishCardEdit from './components/adminWishCardEdit/AdminWishCardEdit'
+import AdminLoginPage from './pages/adminLogin/AdminLogin'
 import Header from './components/header/Header'
 import Footer from './components/footer/Footer'
 import NotFound from './components/notFound/NotFound'
+import PrivateRoute from './components/privateRoute/PrivateRoute'
 
 import './main.style.scss';
 
@@ -44,6 +47,22 @@ function App() {
     { id: 'header5', title: '聯絡我們', link: '/contact' },
   ]
 
+  // const [currentUser, setCurrentUser] = useState({ currentUser: null })
+  
+  // let unsubscribeFromAuth =  null
+ 
+  // useEffect(() => {
+  //     unsubscribeFromAuth = auth.onAuthStateChanged(user => {
+  //     setCurrentUser({ currentUser: user })
+  //     console.log(user)
+  //   })
+  // }, [unsubscribeFromAuth])
+
+  // useEffect(() => {
+  //   return function unmount() {
+  //     unsubscribeFromAuth()
+  //   }
+  // }, [unsubscribeFromAuth])
 
   return (
     <div className="App">
@@ -51,51 +70,57 @@ function App() {
       <Switch>
         <Redirect exact={true} path="/admin" to="/admin/main" />
 
+        <Route path="/admin/login" exact={true}>
+          <AdminLoginPage />
+        </Route>
+
         <Route path="/admin" >
-          <Header type={adminHeader} admin="admin"/>
+          <Header type={adminHeader} admin="admin" />
           <Switch>
-            <Route path="/admin/main" exact={true}>
-              <AdminPage />
-            </Route>
-            <Route path="/admin/main/add" exact={true}>
-              <AdminAddPage title="新增貼文" submitButton="新增"/>
-            </Route>
-            <Route path="/admin/main/edit/:id" exact={true}>
-              <AdminEditPage />
-            </Route>
-            <Route path="/admin/history" exact={true}>
-              <AdminHistoryPage />
-            </Route>
-            <Route path="/admin/history/add" exact={true}>
-              <AdminHistoryAddPage title="新增歷史" submitButton="新增"/>
-            </Route>
-            <Route path="/admin/history/edit/:id" exact={true}>
-              <AdminHistoryEditPage />
-            </Route>
-            <Route path="/admin/character" exact={true}>
-              <AdminCharacterPage />
-            </Route>
-            <Route path="/admin/character/add" exact={true}>
-              <AdminCharacterAddPage title="新增角色" submitButton="新增"/>
-            </Route>
-            <Route path="/admin/character/edit/:id" exact={true}>
-              <AdminCharacterEditPage />
-            </Route>
-            <Route path="/admin/sticker" exact={true}>
-              <AdminStickerPage />
-            </Route>
-            <Route path="/admin/sticker/add" exact={true}>
-              <AdminStickerAddPage title="新增貼圖" submitButton="新增"/>
-            </Route>
-            <Route path="/admin/sticker/edit/:id" exact={true}>
-              <AdminStickerEditPage />
-            </Route>
-            <Route path="/admin/wishCard" exact={true}>
-              <AdminWishCardPage />
-            </Route>
-            <Route path="/admin/wishCard/edit/:id" exact={true}>
-              <AdminWishCardEdit />
-            </Route>
+            <PrivateRoute>
+              <Route path="/admin/main" exact={true}>
+                <AdminPage />
+              </Route>
+              <Route path="/admin/main/add" exact={true}>
+                <AdminAddPage title="新增貼文" submitButton="新增" />
+              </Route>
+              <Route path="/admin/main/edit/:id" exact={true}>
+                <AdminEditPage />
+              </Route>
+              <Route path="/admin/history" exact={true}>
+                <AdminHistoryPage />
+              </Route>
+              <Route path="/admin/history/add" exact={true}>
+                <AdminHistoryAddPage title="新增歷史" submitButton="新增" />
+              </Route>
+              <Route path="/admin/history/edit/:id" exact={true}>
+                <AdminHistoryEditPage />
+              </Route>
+              <Route path="/admin/character" exact={true}>
+                <AdminCharacterPage />
+              </Route>
+              <Route path="/admin/character/add" exact={true}>
+                <AdminCharacterAddPage title="新增角色" submitButton="新增" />
+              </Route>
+              <Route path="/admin/character/edit/:id" exact={true}>
+                <AdminCharacterEditPage />
+              </Route>
+              <Route path="/admin/sticker" exact={true}>
+                <AdminStickerPage />
+              </Route>
+              <Route path="/admin/sticker/add" exact={true}>
+                <AdminStickerAddPage title="新增貼圖" submitButton="新增" />
+              </Route>
+              <Route path="/admin/sticker/edit/:id" exact={true}>
+                <AdminStickerEditPage />
+              </Route>
+              <Route path="/admin/wishCard" exact={true}>
+                <AdminWishCardPage />
+              </Route>
+              <Route path="/admin/wishCard/edit/:id" exact={true}>
+                <AdminWishCardEdit />
+              </Route>
+            </PrivateRoute>
           </Switch>
         </Route>
 

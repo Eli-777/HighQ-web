@@ -39,3 +39,15 @@ export const blankWarning = ()=> Swal.fire({
   text: `留言處沒有任何文字，請勿只輸入空白`,
 })
 
+export const loginFail = ()=> Swal.fire({
+  icon: 'error',
+  title: '無法登入',
+  text: `請確認 email 或是密碼有無登打錯誤`,
+})
+
+export const loginNoInput = (text)=> Swal.fire({
+  icon: 'warning',
+  title: '登入失敗!',
+  text: `${text}尚未填寫！`
+})
+

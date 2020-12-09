@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { signOut } from '../../redux/user/user.action'
 
 import './header.style.scss'
 
 function Header({ type, admin }) {
   const [showBackground, setShowBackground] = useState(false)
+  const dispatch = useDispatch()
 
   function navToggle() {
     setShowBackground(!showBackground)
@@ -16,7 +19,7 @@ function Header({ type, admin }) {
   return (
     <div className='header'>
       <div className={`header__icon`}>
-        <Link to="/" className={`header__icon-link`}>
+        <Link to="/" className={`header__icon-link`} onClick={admin ? () => dispatch(signOut()) : null}>
           <h1>
             {
               admin ? 'logout' : 'HighQ'

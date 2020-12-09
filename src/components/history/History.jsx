@@ -18,49 +18,6 @@ function History({ histories, getHistory }) {
   }
 
   function yearFilter(histories) {
-    // let fetchYear = histories.map((history) => {
-    //   let historyYear = selectDate(history, 0)
-    //   return historyYear
-    // })
-    // fetchYear = fetchYear.filter((year, index, arr) => {
-    //   return arr.indexOf(year) === index
-    // })
-    // console.log('fetchYear = ', fetchYear)
-
-    // let filteredYearHistory = fetchYear.map((year)=> {
-
-    //   let yearHistory = histories.filter((history) => {
-    //     let historyYear = selectDate(history, 0)
-    //     return historyYear === year
-    //   })
-
-    //   return [year, [...yearHistory]]
-    // })
-
-    // let filteredMonthHistory = filteredYearHistory.map((year) => {
-    //   console.log(year, year[1])
-    //   let table = {}
-    //   year[1].forEach((month) => {
-    //     let historyMonth = selectDate(month, 1)
-    //     if (!table[historyMonth]) {
-    //       table[historyMonth] = []
-    //     }
-    //     table[historyMonth].push(month)
-    //   })
-
-    //   let table2 = []
-    //   for (const [key, value] of Object.entries(table)) {
-    //     table2.push({
-    //       "month": key,
-    //       "left": value
-    //     })
-    //   }
-    //   console.log("table", table)
-
-    //   return {"year":year[0], "inner": table2}
-
-    // })
-
     let year = {}
     let yearArray = []
     histories.forEach((history) => {
