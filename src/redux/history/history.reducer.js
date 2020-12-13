@@ -1,14 +1,33 @@
 import HistoryActionTypes from './history.type'
 import { addFormToHistory, fetchSingleHistory, editHistory, deleteHistory } from './history.utils'
-import historyDummyData from './dummyHistory2'
 
 const INITIAL_STATE = {
-  histories: historyDummyData,
-  selectedHistory: []
+  histories: [],
+  selectedHistory: [],
+  isLoading: true,
+  errorMessage: null
 }
 
 const historyReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case HistoryActionTypes.FETCH_HISTORY_START:
+      return {
+        ...state
+      }
+
+    case HistoryActionTypes.FETCH_HISTORY_SUCCESS:
+      return {
+        ...state,
+        histories: action.payload,
+        isLoading: false
+      }
+
+    case HistoryActionTypes.FETCH_HISTORY_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isLoading: false
+      }
     case HistoryActionTypes.GET_HISTORY:
       return {
         ...state,

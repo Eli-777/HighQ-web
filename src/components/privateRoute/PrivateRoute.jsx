@@ -1,27 +1,33 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import { Redirect, Route } from 'react-router-dom'
+import Spinner from '../spinner/spinner.component'
 
 function PrivateRoute({ children, ...rest }) {
-  const admin = useSelector((state) => state.user.isAdmin)
+  const isAdmin = useSelector((state) => state.user.isAdmin)
+  const isLoading = useSelector((state) => state.user.isLoading)
 
 
   return (
     <Route
       {...rest}
       render={({ location }) =>
-        admin ?
-          (
-            children
-          )
+        isLoading ?
+          <Spinner/>
           :
-          (
-            <Redirect
-              to={{
-                pathname: "/admin/login",
-                state: { from: location }
-              }}
-            />
+          (isAdmin ?
+            (
+              children
+            )
+            :
+            (
+              <Redirect
+                to={{
+                  pathname: "/admin/login",
+                  state: { from: location }
+                }}
+              />
+            )
           )
       }
     />

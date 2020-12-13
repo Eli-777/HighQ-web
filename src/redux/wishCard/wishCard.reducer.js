@@ -1,14 +1,34 @@
 import WishCardActionTypes from './wishCard.type'
 import { addFormToWishCards, fetchSingleWishCard, editWishCard, deleteWishCard } from './wishCard.utils'
-import wishCardDummyData from './contact.dummyData'
 
 const INITIAL_STATE = {
-  wishCards: wishCardDummyData,
-  selectedWishCard: []
+  wishCards: [],
+  selectedWishCard: [],
+  isLoading: true,
+  errorMessage: null
 }
 
 const wishCardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case WishCardActionTypes.FETCH_WISH_CARD_START:
+      return {
+        ...state
+      }
+
+    case WishCardActionTypes.FETCH_WISH_CARD_SUCCESS:
+      return {
+        ...state,
+        wishCards: action.payload,
+        isLoading: false
+      }
+
+    case WishCardActionTypes.FETCH_WISH_CARD_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isLoading: false
+      }
+    
     case WishCardActionTypes.GET_WISH_CARD:
       return {
         ...state,

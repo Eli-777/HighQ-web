@@ -1,5 +1,20 @@
 import WishCardActionTypes from './wishCard.type'
 
+
+export const fetchStickerStart = () => ({
+  type: WishCardActionTypes.FETCH_WISH_CARD_START
+})
+
+export const fetchStickerSuccess = (wishCards) => ({
+  type: WishCardActionTypes.FETCH_WISH_CARD_SUCCESS,
+  payload: wishCards
+})
+
+export const fetchStickerFailure = (errorMessage) => ({
+  type: WishCardActionTypes.FETCH_WISH_CARD_FAILURE,
+  payload: errorMessage
+})
+
 export const getWishCard = () => ({
   type: WishCardActionTypes.GET_WISH_CARD,
 })

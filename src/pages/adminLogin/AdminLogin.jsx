@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { setCurrentUser } from '../../redux/user/user.action.js'
+import { auth } from '../../firebase/firebase.utils'
 
 import FormLoginInput from '../../components/formLoginInput/FormLoginInput.jsx'
 import AdminCustomButton from '../../components/adminCustomButton/AdminCustomButton'
@@ -18,28 +19,30 @@ function AdminLogin(props) {
   const history = useHistory()
   const dispatch = useDispatch()
 
-  const handleSubmit = async event => {
-    event.preventDefault()
+  const handleSubmit = async (event) => {
+    try {
 
-    let admin = {
-      email: 'tako@example.com',
-      password: '123456'
-    }
-    if (!userCredentials.email) {
-      loginNoInput('email')
-      return
-    } else if (!userCredentials.password) {
-      loginNoInput('密碼')
-      return
-    } else if (userCredentials.email !== admin.email || userCredentials.password !== admin.password) {
+      event.preventDefault()
+
+      if (!email) {
+        loginNoInput('email')
+        return
+      } else if (!password) {
+        loginNoInput('密碼')
+        return
+      }
+
+
+      const { user } = await auth.signInWithEmailAndPassword(email, password)
+
+      dispatch(setCurrentUser(user.email))
+      history.push('/admin/main')
+      setCredentials({ email: '', password: '' })
+    } catch (error) {
       loginFail()
-      return
     }
-
-    dispatch(setCurrentUser(userCredentials.email))
-    history.push('/admin/main')
-    setCredentials({ email: '', password: '' })
   }
+
 
 
   const handleChange = event => {

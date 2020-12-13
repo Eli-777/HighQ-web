@@ -1,5 +1,19 @@
 import HistoryActionTypes from './history.type'
 
+export const fetchHistoryStart = () => ({
+  type: HistoryActionTypes.FETCH_HISTORY_START
+})
+
+export const fetchHistorySuccess = (histories) => ({
+  type: HistoryActionTypes.FETCH_HISTORY_SUCCESS,
+  payload: histories
+})
+
+export const fetchHistoryFailure = (errorMessage) => ({
+  type: HistoryActionTypes.FETCH_HISTORY_FAILURE,
+  payload: errorMessage
+})
+
 export const getHistory = () => ({
   type: HistoryActionTypes.GET_HISTORY,
 })

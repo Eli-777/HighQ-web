@@ -1,14 +1,34 @@
-import stickerDummyData from './dummyStickers'
 import StickerActionTypes from './sticker.type'
 import { fetchSingleSticker, addFormToStickers, editSticker, deleteSticker } from './sticker.utils.js'
 
 const INITIAL_STATE = {
-  stickers: stickerDummyData,
-  selectedSticker: []
+  stickers: [],
+  selectedSticker: [],
+  isLoading: true,
+  errorMessage: null
 }
 
 const stickerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case StickerActionTypes.FETCH_STICKER_START:
+      return {
+        ...state,
+      }
+
+    case StickerActionTypes.FETCH_STICKER_SUCCESS:
+      return {
+        ...state,
+        stickers: action.payload,
+        isLoading: false
+      }
+
+    case StickerActionTypes.FETCH_STICKER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+
     case StickerActionTypes.GET_STICKER:
       return {
         ...state,

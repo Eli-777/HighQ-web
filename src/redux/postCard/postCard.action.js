@@ -1,7 +1,22 @@
 import PostCardActionTypes from './postCard.type'
 
-export const getPostCards = () => ({
-  type: PostCardActionTypes.GET_POSTCARDS,
+export const updatePostCards = (postCards) => ({
+  type: PostCardActionTypes.UPDATE_POSTCARDS,
+  payload: postCards
+})
+
+export const fetchPostCardsStart = () => ({
+  type: PostCardActionTypes.FETCH_POSTCARDS_START,
+})
+
+export const fetchPostCardsSuccess = (PostCardsMap) => ({
+  type: PostCardActionTypes.FETCH_POSTCARDS_SUCCESS,
+  payload: PostCardsMap
+})
+
+export const fetchPostCardsFailure = (errorMessage) => ({
+  type: PostCardActionTypes.FETCH_POSTCARDS_FAILURE,
+  payload: errorMessage
 })
 
 export const getSinglePostCards = (id) => ({

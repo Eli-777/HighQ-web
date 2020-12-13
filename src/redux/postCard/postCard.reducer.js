@@ -1,20 +1,40 @@
 import PostCardActionTypes from './postCard.type'
-import postCardDummyData from './postCard.dummyData'
 
 import { addFormToPostCards, deletePostCard, fetchSinglePostCard, editPostCard } from './postCard.utils'
 
 
 const INITIAL_STATE = {
-  cards: postCardDummyData.cards,
-  selectedCard: []
+  cards: [],
+  selectedCard: [],
+  isLoading: true,
+  errorMessage: null
 }
 
 
 const postCardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case PostCardActionTypes.GET_POSTCARDS:
+    case PostCardActionTypes.UPDATE_POSTCARDS:
       return {
         ...state,
+        cards: action.payload,
+        isLoading: false
+      }
+
+    case PostCardActionTypes.FETCH_POSTCARDS_START:
+      return {
+        ...state,
+      }
+    case PostCardActionTypes.FETCH_POSTCARDS_SUCCESS:
+      return {
+        ...state,
+        isLoading: false,
+        cards: action.payload
+      }
+    case PostCardActionTypes.FETCH_POSTCARDS_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
       }
 
     case PostCardActionTypes.GET_SINGLE_POSTCARD:

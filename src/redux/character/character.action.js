@@ -1,5 +1,19 @@
 import CharacterActionTypes from './character.type'
 
+export const fetchCharacterStart= () => ({
+  type: CharacterActionTypes.FETCH_CHARACTER_START
+})
+
+export const fetchCharacterSuccess = (characters) => ({
+  type: CharacterActionTypes.FETCH_CHARACTER_SUCCESS,
+  payload: characters
+})
+
+export const fetchCharacterFailure = (errorMessage) => ({
+  type: CharacterActionTypes.FETCH_CHARACTER_FAILURE,
+  payload: errorMessage
+})
+
 export const getCharacter = () => ({
   type: CharacterActionTypes.GET_CHARACTER,
 })

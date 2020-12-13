@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { getWishCard } from '../../redux/wishCard/wishCard.action'
+import { fetchStickerStart } from '../../redux/wishCard/wishCard.action'
 
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
@@ -8,14 +8,15 @@ import { SiTiktok } from 'react-icons/si';
 import WishCard from '../../components/wishCard/WishCard'
 import WishForm from '../../components/wishFrom/WishForm'
 import SocialLink from '../../components/socialLink/SocialLink'
+import Spinner from '../../components/spinner/spinner.component'
 
 import './contact.style.scss'
 
-function Contact({ wishCards, getWishCard }) {
+function Contact({ wishCards, fetchStickerStart, isLoading }) {
 
   useEffect(() => {
-    getWishCard()
-  }, [getWishCard])
+    fetchStickerStart()
+  }, [fetchStickerStart])
 
   return (
     <div className="contact pageContainer">
@@ -27,6 +28,8 @@ function Contact({ wishCards, getWishCard }) {
           <div className="contact__wishCardsContainer">
             <div className="contact__wishCards max-width-big-desktop">
               {
+                isLoading ?
+                <Spinner /> :
                 wishCards.map((wishCard) => {
                   return <WishCard key={wishCard.id} wishCard={wishCard} />
                 })
@@ -60,14 +63,15 @@ function Contact({ wishCards, getWishCard }) {
 
 const mapStateToProps = (state) => {
   return {
-    wishCards: state.wishCard.wishCards
+    wishCards: state.wishCard.wishCards,
+    isLoading: state.wishCard.isLoading
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getWishCard: () => {
-      dispatch(getWishCard())
+    fetchStickerStart: () => {
+      dispatch(fetchStickerStart())
     }
   }
 }

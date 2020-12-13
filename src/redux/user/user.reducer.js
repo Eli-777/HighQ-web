@@ -3,7 +3,8 @@ import UserActionTypes from './user.type.js'
 
 const INITIAL_STATE = {
   currentUser: "",
-  isAdmin: false
+  isAdmin: false,
+  isLoading: true
 }
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -12,14 +13,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
       return {
         ...state,
         currentUser: action.payload,
-        isAdmin: true
+        isAdmin: true,
+        isLoading: false
       }
     
     case UserActionTypes.SIGN_OUT:
       return {
         ...state,
         currentUser: '',
-        isAdmin: false
+        isAdmin: false,
+        isLoading: false
       }
 
     default:

@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom'
 
 import UseScrollToTop from './effects/use-reStoreScrollTop.effects'
 import { auth } from './firebase/firebase.utils'
+import { useDispatch } from 'react-redux'
+import { setCurrentUser, signOut } from './redux/user/user.action'
 
 import Homepage from './pages/homepage/Homepage'
 import AuthorPage from './pages/author/Author'
@@ -47,22 +49,26 @@ function App() {
     { id: 'header5', title: '聯絡我們', link: '/contact' },
   ]
 
-  // const [currentUser, setCurrentUser] = useState({ currentUser: null })
-  
-  // let unsubscribeFromAuth =  null
- 
-  // useEffect(() => {
-  //     unsubscribeFromAuth = auth.onAuthStateChanged(user => {
-  //     setCurrentUser({ currentUser: user })
-  //     console.log(user)
-  //   })
-  // }, [unsubscribeFromAuth])
+  const dispatch = useDispatch()
+  const unsubscribeFromAuth = useRef(null)
 
-  // useEffect(() => {
-  //   return function unmount() {
-  //     unsubscribeFromAuth()
-  //   }
-  // }, [unsubscribeFromAuth])
+
+  useEffect(() => {
+    unsubscribeFromAuth.current = auth.onAuthStateChanged(
+      user => {
+        user
+          ? dispatch(setCurrentUser(user.email))
+          : dispatch(signOut())
+      }
+    );
+
+    return () => {
+      unsubscribeFromAuth.current = null;
+    }
+
+  }, [dispatch])
+
+
 
   return (
     <div className="App">
@@ -78,8 +84,8 @@ function App() {
           <Header type={adminHeader} admin="admin" />
           <Switch>
             <PrivateRoute>
-              <Route path="/admin/main" exact={true}>
-                <AdminPage />
+              <Route path="/admin/main" exact={true}>               
+                <AdminPage />               
               </Route>
               <Route path="/admin/main/add" exact={true}>
                 <AdminAddPage title="新增貼文" submitButton="新增" />

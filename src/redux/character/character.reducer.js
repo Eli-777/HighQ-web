@@ -1,5 +1,4 @@
 import CharacterActionTypes from './character.type'
-import characterDummyData from './DummyCharacters'
 import { 
   addFormToCharacters, 
   deleteCharacter, 
@@ -8,12 +7,33 @@ import {
 } from './character.utils'
 
 const INITIAL_STATE = {
-  characters: characterDummyData,
-  selectedCharacter: []
+  characters: [],
+  selectedCharacter: [],
+  isLoading: true,
+  errorMessage: null
 }
 
 const characterReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case CharacterActionTypes.FETCH_CHARACTER_START:
+      return {
+        ...state,
+      }
+
+    case CharacterActionTypes.FETCH_CHARACTER_SUCCESS:
+      return {
+        ...state,
+        characters: action.payload,
+        isLoading: false,
+      }
+
+    case CharacterActionTypes.FETCH_CHARACTER_FAILURE:
+      return {
+        ...state,
+        isLoading: false,
+        errorMessage: action.payload
+      }
+
     case CharacterActionTypes.GET_CHARACTER:
       return {
         ...state,

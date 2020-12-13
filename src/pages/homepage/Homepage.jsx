@@ -1,13 +1,15 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { getPostCards } from '../../redux/postCard/postCard.action'
+import { fetchPostCardsStart } from '../../redux/postCard/postCard.action'
+
 
 import PostCard from '../../components/postCard/PostCard'
+import Spinner from '../../components/spinner/spinner.component'
 
 import './homepage.style.scss'
 
 
-function Homepage({ postCards, getPostCards }) {
+function Homepage({ postCards, fetchPostCards, isLoading }) {
 
   function generateAniDelay(index) {
     return {
@@ -16,8 +18,8 @@ function Homepage({ postCards, getPostCards }) {
   }
 
   useEffect(() => {
-    getPostCards()
-  }, [getPostCards])
+    fetchPostCards()
+  }, [fetchPostCards])
 
 
   return (
@@ -28,9 +30,11 @@ function Homepage({ postCards, getPostCards }) {
       <div className="homepage__post">
         <div className="homepage__post--cards">
           {
-            postCards.map((card, index) => {
-              return <PostCard key={card.id} media={card.media} mediaIcon={card.mediaIcon} photo={card.photo} date={card.date} link={card.link} style={generateAniDelay(index)} />
-            })
+            isLoading ?
+              <Spinner /> :
+              postCards.map((card, index) => {
+                return <PostCard key={card.id} media={card.media} mediaIcon={card.mediaIcon} photo={card.photo} date={card.date} link={card.link} style={generateAniDelay(index)} />
+              })
           }
         </div>
       </div>
@@ -40,14 +44,15 @@ function Homepage({ postCards, getPostCards }) {
 
 const mapStateToProps = (state) => {
   return {
-    postCards: state.postCard.cards
+    postCards: state.postCard.cards,
+    isLoading: state.postCard.isLoading
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPostCards: () => {
-      dispatch(getPostCards())
+    fetchPostCards: () => {
+      dispatch(fetchPostCardsStart())
     }
   }
 }
