@@ -10,11 +10,6 @@ const INITIAL_STATE = {
 
 const stickerReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case StickerActionTypes.FETCH_STICKER_START:
-      return {
-        ...state,
-      }
-
     case StickerActionTypes.FETCH_STICKER_SUCCESS:
       return {
         ...state,
@@ -29,10 +24,6 @@ const stickerReducer = (state = INITIAL_STATE, action) => {
         errorMessage: action.payload
       }
 
-    case StickerActionTypes.GET_STICKER:
-      return {
-        ...state,
-      }
 
     case StickerActionTypes.GET_SINGLE_STICKER:
       return {

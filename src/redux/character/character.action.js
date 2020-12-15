@@ -14,9 +14,6 @@ export const fetchCharacterFailure = (errorMessage) => ({
   payload: errorMessage
 })
 
-export const getCharacter = () => ({
-  type: CharacterActionTypes.GET_CHARACTER,
-})
 
 export const getSingleCharacter = (id) => ({
   type: CharacterActionTypes.GET_SINGLE_CHARACTER,

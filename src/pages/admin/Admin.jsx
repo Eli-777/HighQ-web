@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import { updatePostCards } from '../../redux/postCard/postCard.action.js'
-import { firestore, convertPostCardsSnapshotToMap } from '../../firebase/firebase.utils'
+import { fetchPostCardsStart } from '../../redux/postCard/postCard.action.js'
 
 import AdminPageTitle from '../../components/adminPageTitle/AdminPageTitle'
 import AdminTable from '../../components/adminTable/AdminTable'
@@ -15,11 +14,7 @@ function Admin(props) {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const collectionRef = firestore.collection('postCards')
-    collectionRef.get().then(onSnapshot => {
-      const firebasePostCards = convertPostCardsSnapshotToMap(onSnapshot)
-      dispatch(updatePostCards(firebasePostCards))
-    })
+    dispatch(fetchPostCardsStart())
   }, [dispatch])
 
   const tableTitles = [

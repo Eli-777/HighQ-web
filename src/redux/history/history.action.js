@@ -14,8 +14,8 @@ export const fetchHistoryFailure = (errorMessage) => ({
   payload: errorMessage
 })
 
-export const getHistory = () => ({
-  type: HistoryActionTypes.GET_HISTORY,
+export const getHistoryStart = () => ({
+  type: HistoryActionTypes.GET_HISTORY_START,
 })
 
 export const addHistory = (form) => ({

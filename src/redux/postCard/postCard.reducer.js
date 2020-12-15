@@ -13,17 +13,6 @@ const INITIAL_STATE = {
 
 const postCardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case PostCardActionTypes.UPDATE_POSTCARDS:
-      return {
-        ...state,
-        cards: action.payload,
-        isLoading: false
-      }
-
-    case PostCardActionTypes.FETCH_POSTCARDS_START:
-      return {
-        ...state,
-      }
     case PostCardActionTypes.FETCH_POSTCARDS_SUCCESS:
       return {
         ...state,

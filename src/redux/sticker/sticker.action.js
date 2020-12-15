@@ -15,9 +15,6 @@ export const fetchStickerFailure = (errorMessage) => ({
   payload: errorMessage
 })
 
-export const getSticker = () => ({
-  type: StickerActionTypes.GET_STICKER,
-})
 
 export const getSingleSticker = (id) => ({
   type: StickerActionTypes.GET_SINGLE_STICKER,

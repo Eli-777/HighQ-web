@@ -150,4 +150,28 @@ export const convertHistoriesSnapshotToMap = (histories) => {
   return sortedHistories
 }
 
+export const convertAdminHistoriesSnapshotToMap = (histories) => {
+  const transformedHistory = histories.docs.map(doc => {
+    const { date, type, desc, img } = doc.data()
+    return {
+      id: doc.id,
+      date,
+      type,
+      desc,
+      img
+    }
+  })
+
+  return transformedHistory
+}
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject)
+  })
+}
+
 export default firebase

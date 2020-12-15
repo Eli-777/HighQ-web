@@ -15,11 +15,6 @@ const INITIAL_STATE = {
 
 const characterReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CharacterActionTypes.FETCH_CHARACTER_START:
-      return {
-        ...state,
-      }
-
     case CharacterActionTypes.FETCH_CHARACTER_SUCCESS:
       return {
         ...state,
@@ -34,10 +29,6 @@ const characterReducer = (state = INITIAL_STATE, action) => {
         errorMessage: action.payload
       }
 
-    case CharacterActionTypes.GET_CHARACTER:
-      return {
-        ...state,
-      }
 
     case CharacterActionTypes.GET_SINGLE_CHARACTER:
       return {

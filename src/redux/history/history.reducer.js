@@ -10,11 +10,6 @@ const INITIAL_STATE = {
 
 const historyReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case HistoryActionTypes.FETCH_HISTORY_START:
-      return {
-        ...state
-      }
-
     case HistoryActionTypes.FETCH_HISTORY_SUCCESS:
       return {
         ...state,
@@ -28,10 +23,7 @@ const historyReducer = (state = INITIAL_STATE, action) => {
         errorMessage: action.payload,
         isLoading: false
       }
-    case HistoryActionTypes.GET_HISTORY:
-      return {
-        ...state,
-      }
+
     case HistoryActionTypes.ADD_HISTORY:
       return {
         ...state,

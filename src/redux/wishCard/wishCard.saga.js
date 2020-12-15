@@ -1,6 +1,6 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects'
 import { firestore, convertWishCardsSnapshotToMap } from '../../firebase/firebase.utils'
-import { fetchStickerSuccess, fetchStickerFailure } from './wishCard.action'
+import { fetchWishCardSuccess, fetchWishCardFailure } from './wishCard.action'
 import WishCardActionTypes from './wishCard.type'
 
 export function* fetchWishCardAsync() {
@@ -8,9 +8,9 @@ export function* fetchWishCardAsync() {
     const collectionRef = firestore.collection('wishCards')
     const snapShot = yield collectionRef.get()
     const firebaseWishCard = yield call(convertWishCardsSnapshotToMap, snapShot)
-    yield put(fetchStickerSuccess(firebaseWishCard))
+    yield put(fetchWishCardSuccess(firebaseWishCard))
   } catch (error) {
-    yield put(fetchStickerFailure(error.message))
+    yield put(fetchWishCardFailure(error.message))
   }
 }
 

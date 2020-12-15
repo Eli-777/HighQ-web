@@ -10,11 +10,6 @@ const INITIAL_STATE = {
 
 const wishCardReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case WishCardActionTypes.FETCH_WISH_CARD_START:
-      return {
-        ...state
-      }
-
     case WishCardActionTypes.FETCH_WISH_CARD_SUCCESS:
       return {
         ...state,
@@ -29,10 +24,6 @@ const wishCardReducer = (state = INITIAL_STATE, action) => {
         isLoading: false
       }
     
-    case WishCardActionTypes.GET_WISH_CARD:
-      return {
-        ...state,
-      }
     case WishCardActionTypes.ADD_WISH_CARD:
       return {
         ...state,

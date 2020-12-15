@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import { setCurrentUser } from '../../redux/user/user.action.js'
-import { auth } from '../../firebase/firebase.utils'
+import { emailSignInStart } from '../../redux/user/user.action.js'
 
 import FormLoginInput from '../../components/formLoginInput/FormLoginInput.jsx'
 import AdminCustomButton from '../../components/adminCustomButton/AdminCustomButton'
 import icon from '../../assets/icon2x.png'
 
-import { loginNoInput, loginFail } from '../../effects/sweetAlert2.effects'
+import { loginNoInput } from '../../effects/sweetAlert2.effects'
 
 import './adminLogin.style.scss'
 
@@ -20,27 +19,16 @@ function AdminLogin(props) {
   const dispatch = useDispatch()
 
   const handleSubmit = async (event) => {
-    try {
-
-      event.preventDefault()
-
-      if (!email) {
-        loginNoInput('email')
-        return
-      } else if (!password) {
-        loginNoInput('密碼')
-        return
-      }
-
-
-      const { user } = await auth.signInWithEmailAndPassword(email, password)
-
-      dispatch(setCurrentUser(user.email))
-      history.push('/admin/main')
-      setCredentials({ email: '', password: '' })
-    } catch (error) {
-      loginFail()
+    event.preventDefault()
+    if (!email) {
+      loginNoInput('email')
+      return
+    } else if (!password) {
+      loginNoInput('密碼')
+      return
     }
+
+    dispatch(emailSignInStart({email, password, history}))
   }
 
 

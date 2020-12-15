@@ -1,9 +1,5 @@
 import PostCardActionTypes from './postCard.type'
 
-export const updatePostCards = (postCards) => ({
-  type: PostCardActionTypes.UPDATE_POSTCARDS,
-  payload: postCards
-})
 
 export const fetchPostCardsStart = () => ({
   type: PostCardActionTypes.FETCH_POSTCARDS_START,

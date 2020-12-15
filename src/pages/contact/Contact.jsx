@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux'
-import { fetchStickerStart } from '../../redux/wishCard/wishCard.action'
+import { fetchWishCardStart } from '../../redux/wishCard/wishCard.action'
 
 import { FaInstagram, FaFacebookF, FaYoutube } from 'react-icons/fa';
 import { SiTiktok } from 'react-icons/si';
@@ -12,11 +12,11 @@ import Spinner from '../../components/spinner/spinner.component'
 
 import './contact.style.scss'
 
-function Contact({ wishCards, fetchStickerStart, isLoading }) {
+function Contact({ wishCards, fetchWishCardStart, isLoading }) {
 
   useEffect(() => {
-    fetchStickerStart()
-  }, [fetchStickerStart])
+    fetchWishCardStart()
+  }, [fetchWishCardStart])
 
   return (
     <div className="contact pageContainer">
@@ -70,8 +70,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    fetchStickerStart: () => {
-      dispatch(fetchStickerStart())
+    fetchWishCardStart: () => {
+      dispatch(fetchWishCardStart())
     }
   }
 }

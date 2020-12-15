@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom'
-import { auth } from '../../firebase/firebase.utils'
+import { signOutStart } from '../../redux/user/user.action'
+import { useDispatch } from 'react-redux'
 
 import './header.style.scss'
 
@@ -12,12 +13,13 @@ function Header({ type, admin }) {
   }
 
   const { pathname } = useLocation()
+  const dispatch = useDispatch()
 
 
   return (
     <div className='header'>
       <div className={`header__icon`}>
-        <Link to="/" className={`header__icon-link`} onClick={admin ? () => auth.signOut() : null}>
+        <Link to="/" className={`header__icon-link`} onClick={admin ? () => dispatch(signOutStart()) : null}>
           <h1>
             {
               admin ? 'logout' : 'HighQ'
