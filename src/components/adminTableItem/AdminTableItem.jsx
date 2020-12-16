@@ -1,10 +1,10 @@
 import React from 'react';
 import { useDispatch } from 'react-redux'
-import { deletePostCard } from '../../redux/postCard/postCard.action'
-import { deleteHistory } from '../../redux/history/history.action'
-import { deleteCharacter } from '../../redux/character/character.action'
-import { deleteSticker } from '../../redux/sticker/sticker.action'
-import { deleteWishCard } from '../../redux/wishCard/wishCard.action'
+import { deletePostCardStart } from '../../redux/postCard/postCard.action'
+import { deleteHistoryStart } from '../../redux/history/history.action'
+import { deleteCharacterStart } from '../../redux/character/character.action'
+import { deleteStickerStart } from '../../redux/sticker/sticker.action'
+import { deleteWishCardStart } from '../../redux/wishCard/wishCard.action'
 import { useHistory } from 'react-router-dom'
 
 import CustomButton from '../custom-button/CustomButton'
@@ -23,15 +23,15 @@ function AdminTableItem({ tableTitles, td1, td2, td3, td4, isWishCard, id, page 
       if (result.isConfirmed) {
         switch (page) {
           case "main":
-            return dispatch(deletePostCard(id))
+            return dispatch(deletePostCardStart(id))
           case "history":
-            return dispatch(deleteHistory(id))
+            return dispatch(deleteHistoryStart(id))
           case "character":
-            return dispatch(deleteCharacter(id))
+            return dispatch(deleteCharacterStart(id))
           case "sticker":
-            return dispatch(deleteSticker(id))
+            return dispatch(deleteStickerStart(id))
           case "wishCard":
-            return dispatch(deleteWishCard(id))
+            return dispatch(deleteWishCardStart(id))
 
           default:
             return

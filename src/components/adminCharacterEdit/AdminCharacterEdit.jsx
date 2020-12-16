@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSingleCharacter } from '../../redux/character/character.action'
+import { getSingleCharacterStart } from '../../redux/character/character.action'
 
 import AdminCharacterAddPage from '../adminCharacterAdd/AdminCharacterAdd'
 
@@ -12,7 +12,7 @@ function AdminMainEdit(props) {
   const selectedCharacter = useSelector(state => state.character.selectedCharacter)
 
   useEffect(() => {
-    dispatch(getSingleCharacter(id))
+    dispatch(getSingleCharacterStart(id))
   }, [id, dispatch])
 
   return (

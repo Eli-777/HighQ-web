@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { editHistory, addHistory } from '../../redux/history/history.action'
+import { editHistoryStart, addHistoryStart } from '../../redux/history/history.action'
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
@@ -8,7 +8,7 @@ import FromSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
-import { NoInput, addSuccess, saveWarning, blankWarning } from '../../effects/sweetAlert2.effects'
+import { NoInput, saveWarning, blankWarning } from '../../effects/sweetAlert2.effects'
 
 
 function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
@@ -47,26 +47,14 @@ function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
 
 
     if (!edit) {
-      dispatch(addHistory(form))
-      addSuccess('新增')
-      setForm({
-        type: 'default',
-        date: '',
-        img: '',
-        desc: ''
-      })
+      dispatch(addHistoryStart({ form, setForm }))
     } else {
       saveWarning().then((result) => {
         if (result.isConfirmed) {
-          dispatch(editHistory(form))
-          addSuccess('編輯').then(() => {
-            history.goBack()
-          })
+          dispatch(editHistoryStart({ form, history }))
         }
       })
-
     }
-
   }
 
   function handleChange(event) {

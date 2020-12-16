@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { addSticker, editSticker } from '../../redux/sticker/sticker.action'
+import { addStickerStart, editStickerStart } from '../../redux/sticker/sticker.action'
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
@@ -8,7 +8,7 @@ import FromSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
-import { NoInput, addSuccess, saveWarning } from '../../effects/sweetAlert2.effects'
+import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
 
 
 function AdminStickerAdd({ selectedSticker, title, submitButton, edit }) {
@@ -57,26 +57,13 @@ function AdminStickerAdd({ selectedSticker, title, submitButton, edit }) {
     }
 
     if (!edit) {
-      dispatch(addSticker(form))
-      addSuccess('新增')
-      setForm({
-        type: 'default',
-        name: '',
-        price: '',
-        image: { single: '', together: '' },
-        link: '',
-        description: ''
-      })
+      dispatch(addStickerStart({ form, setForm }))
     } else {
       saveWarning().then((result) => {
         if (result.isConfirmed) {
-          dispatch(editSticker(form))
-          addSuccess('編輯').then(() => {
-            history.goBack()
-          })
+          dispatch(editStickerStart({ form, history }))
         }
       })
-
     }
   }
 

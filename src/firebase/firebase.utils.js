@@ -20,7 +20,6 @@ export const firestore = firebase.firestore()
 
 export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => {
   const collectionRef = firestore.collection(collectionKey)
-  console.log(collectionRef)
 
   const batch = firestore.batch()
   objectsToAdd.forEach(obj => {
@@ -30,6 +29,61 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 
   return await batch.commit()
 }
+
+export const deleteDocument = async (collectionKey, objectsToDelete) => {
+  const collectionRef = firestore.collection(collectionKey)
+  const collectionRefDoc = collectionRef.doc(objectsToDelete)
+  collectionRefDoc.delete()
+}
+
+export const editDocument = async (collectionKey, objectsToDelete) => {
+  const collectionRef = firestore.collection(collectionKey)
+  const collectionRefDoc = collectionRef.doc(objectsToDelete.id)
+  collectionRefDoc.update({ ...objectsToDelete })
+}
+/*** sort function start ***/
+function sortedLatestToOldestCreateTime(transformedItems) {
+  let sortedItems = transformedItems.map((item) => {
+    item.date = new Date(item.createTime)
+    return item
+  })
+  sortedItems.sort((a, b) =>
+    b.date - a.date
+  )
+  return sortedItems
+}
+
+function sortedLatestToOldestPublishTime(transformedItems) {
+  let sortedItems = transformedItems.map((item) => {
+    let itemDate = item.date.split('-')
+    let year = itemDate[0]
+    let month = itemDate[1]
+    let day = itemDate[2]
+    item.year = year
+    item.month = month
+    item.day = day
+    return item
+  })
+  sortedItems.sort((a, b) => {
+    let yearA = a.year
+    let yearB = b.year
+    let monthA = a.month
+    let monthB = b.month
+    let dayA = a.day
+    let dayB = b.day
+    if (yearA === yearB) {
+      if (monthA === monthB) {
+        return dayB - dayA
+      }
+      return monthB - monthA
+    }
+    return yearB - yearA
+  })
+  return sortedItems
+}
+
+/*** sort function end ***/
+
 
 export const convertPostCardsSnapshotToMap = (postCards) => {
   const transformedPostCard = postCards.docs.map(doc => {
@@ -43,25 +97,30 @@ export const convertPostCardsSnapshotToMap = (postCards) => {
       photo
     }
   })
-  return transformedPostCard
+
+  let sortedPostCard = sortedLatestToOldestPublishTime(transformedPostCard)
+  return sortedPostCard
 }
 
 export const convertCharactersSnapshotToMap = (characters) => {
   const transformedCharacter = characters.docs.map(doc => {
-    const { name, characterImg, intro } = doc.data()
+    const { name, characterImg, intro, createTime } = doc.data()
     return {
       id: doc.id,
       name,
       characterImg,
-      intro
+      intro,
+      createTime
     }
   })
-  return transformedCharacter
+
+  let sortedCharacter = sortedLatestToOldestCreateTime(transformedCharacter)
+  return sortedCharacter
 }
 
 export const convertStickersSnapshotToMap = (stickers) => {
   const transformedSticker = stickers.docs.map(doc => {
-    const { type, name, price, image, link, description } = doc.data()
+    const { type, name, price, image, link, description, createTime } = doc.data()
     return {
       id: doc.id,
       type,
@@ -69,16 +128,13 @@ export const convertStickersSnapshotToMap = (stickers) => {
       price,
       image,
       link,
-      description
+      description,
+      createTime
     }
   })
-  return transformedSticker.reduce((accumulator, sticker) => {
-    if (!accumulator[sticker.type]) {
-      accumulator[sticker.type] = []
-    }
-    accumulator[sticker.type].push(sticker)
-    return accumulator
-  }, {})
+
+  let sortedSticker = sortedLatestToOldestCreateTime(transformedSticker)
+  return sortedSticker
 }
 
 export const convertWishCardsSnapshotToMap = (wishCards) => {
@@ -93,7 +149,9 @@ export const convertWishCardsSnapshotToMap = (wishCards) => {
       createTime
     }
   })
-  return transformedWishCard
+
+  let sortedWishCard = sortedLatestToOldestCreateTime(transformedWishCard)
+  return sortedWishCard
 }
 
 export const convertHistoriesSnapshotToMap = (histories) => {
@@ -162,7 +220,8 @@ export const convertAdminHistoriesSnapshotToMap = (histories) => {
     }
   })
 
-  return transformedHistory
+  let sortedHistory = sortedLatestToOldestPublishTime(transformedHistory)
+  return sortedHistory
 }
 
 export const getCurrentUser = () => {

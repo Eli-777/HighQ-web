@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { addCharacter, editCharacter } from '../../redux/character/character.action'
+import { addCharacterStart, editCharacterStart } from '../../redux/character/character.action'
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
-import { NoInput, addSuccess, saveWarning } from '../../effects/sweetAlert2.effects'
+import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
 
 
 function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
@@ -37,16 +37,11 @@ function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
     }
 
     if (!edit) {
-      dispatch(addCharacter(form))
-      addSuccess('新增')
-      setForm({ name: '', characterImg: '', intro: '' })
+      dispatch(addCharacterStart({ form, setForm }))
     } else {
       saveWarning().then((result) => {
         if (result.isConfirmed) {
-          dispatch(editCharacter(form))
-          addSuccess('編輯').then(() => {
-            history.push(`/admin/character`)
-          })
+          dispatch(editCharacterStart({ form, history }))
         }
       })
 

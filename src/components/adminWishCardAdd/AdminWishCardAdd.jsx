@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { editWishCard } from '../../redux/wishCard/wishCard.action'
+import { editWishCardStart } from '../../redux/wishCard/wishCard.action'
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
@@ -8,7 +8,7 @@ import FromSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
-import { NoInput, addSuccess, saveWarning, blankWarning } from '../../effects/sweetAlert2.effects'
+import { NoInput, saveWarning, blankWarning } from '../../effects/sweetAlert2.effects'
 
 
 function AdminWishCardAdd({ selectedWishCard, title, submitButton }) {
@@ -48,10 +48,7 @@ function AdminWishCardAdd({ selectedWishCard, title, submitButton }) {
 
     saveWarning().then((result) => {
       if (result.isConfirmed) {
-        dispatch(editWishCard(form))
-        addSuccess('編輯').then(() => {
-          history.goBack()
-        })
+        dispatch(editWishCardStart({ form, history }))
       }
     })
 

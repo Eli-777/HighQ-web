@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSinglePostCards } from '../../redux/postCard/postCard.action'
+import { getSinglePostCardStart } from '../../redux/postCard/postCard.action'
 
 import AdminAddPage from '../adminMainAdd/AdminMainAdd'
+import Spinner from '../spinner/spinner.component'
 
 function AdminMainEdit(props) {
 
@@ -12,12 +13,17 @@ function AdminMainEdit(props) {
   const selectedPostCard = useSelector(state => state.postCard.selectedCard)
 
   useEffect(() => {
-    dispatch(getSinglePostCards(id))
+    dispatch(getSinglePostCardStart(id))
   }, [id, dispatch])
 
   return (
     <div>
-      <AdminAddPage selectedPostCard={selectedPostCard} title="編輯貼文" submitButton="儲存" edit/>
+      {
+        !selectedPostCard ?
+          <Spinner />
+          :
+          <AdminAddPage selectedPostCard={selectedPostCard} title="編輯貼文" submitButton="儲存" edit />
+      }
     </div>
   );
 }

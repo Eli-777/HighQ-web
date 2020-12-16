@@ -1,5 +1,5 @@
 import StickerActionTypes from './sticker.type'
-import { fetchSingleSticker, addFormToStickers, editSticker, deleteSticker } from './sticker.utils.js'
+import { addFormToStickers, editSticker, deleteSticker } from './sticker.utils.js'
 
 const INITIAL_STATE = {
   stickers: [],
@@ -17,37 +17,46 @@ const stickerReducer = (state = INITIAL_STATE, action) => {
         isLoading: false
       }
 
-    case StickerActionTypes.FETCH_STICKER_FAILURE:
+    case StickerActionTypes.ADD_STICKER_SUCCESS:
       return {
         ...state,
-        isLoading: false,
-        errorMessage: action.payload
+        stickers: addFormToStickers(action.payload, state.stickers.length, state.stickers)
       }
 
-
-    case StickerActionTypes.GET_SINGLE_STICKER:
+    case StickerActionTypes.GET_SINGLE_STICKER_START:
       return {
         ...state,
-        selectedSticker: fetchSingleSticker(action.payload, state.stickers)
+        selectedSticker: null,
+        isLoading: true
       }
 
-    case StickerActionTypes.ADD_STICKER:
+    case StickerActionTypes.GET_SINGLE_STICKER_SUCCESS:
       return {
         ...state,
-        stickers: addFormToStickers(action.payload, state.stickers.length, state.stickers),
-
+        selectedSticker: action.payload,
+        isLoading: false
       }
 
-    case StickerActionTypes.EDIT_STICKER:
+    case StickerActionTypes.EDIT_STICKER_SUCCESS:
       return {
         ...state,
         stickers: editSticker(action.payload, state.stickers)
       }
 
-    case StickerActionTypes.DELETE_STICKER:
+    case StickerActionTypes.DELETE_STICKER_SUCCESS:
       return {
         ...state,
         stickers: deleteSticker(action.payload, state.stickers)
+      }
+
+    case StickerActionTypes.EDIT_STICKER_FAILURE:
+    case StickerActionTypes.DELETE_STICKER_FAILURE:
+    case StickerActionTypes.ADD_STICKER_FAILURE:
+    case StickerActionTypes.FETCH_STICKER_FAILURE:
+      return {
+        ...state,
+        errorMessage: action.payload,
+        isLoading: false
       }
     default:
       return state

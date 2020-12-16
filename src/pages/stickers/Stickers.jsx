@@ -25,9 +25,9 @@ function Stickers({ stickers, fetchStickerStart, isLoading }) {
   }, [fetchStickerStart])
 
   
-  let onlyStickers = stickers.sticker 
-  let emojis = stickers.emoji 
-  let themes = stickers.theme 
+  let onlyStickers = stickers.filter((sticker) => sticker.type === 'sticker') 
+  let emojis = stickers.filter((sticker) => sticker.type === 'emoji') 
+  let themes = stickers.filter((sticker) => sticker.type === 'theme') 
 
 
   return (

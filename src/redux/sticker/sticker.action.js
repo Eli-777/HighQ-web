@@ -16,23 +16,59 @@ export const fetchStickerFailure = (errorMessage) => ({
 })
 
 
-export const getSingleSticker = (id) => ({
-  type: StickerActionTypes.GET_SINGLE_STICKER,
-  payload: id
-})
-
-export const addSticker = (form) => ({
-  type: StickerActionTypes.ADD_STICKER,
+export const addStickerStart = (form) => ({
+  type: StickerActionTypes.ADD_STICKER_START,
   payload: form
 })
 
-export const deleteSticker = (id) => ({
-  type: StickerActionTypes.DELETE_STICKER,
+export const addStickerSuccess = (form) => ({
+  type: StickerActionTypes.ADD_STICKER_SUCCESS,
+  payload: form
+})
+
+export const addStickerFailure = (errorMessage) => ({
+  type: StickerActionTypes.ADD_STICKER_FAILURE,
+  payload: errorMessage
+})
+
+export const getSingleStickerStart = (id) => ({
+  type: StickerActionTypes.GET_SINGLE_STICKER_START,
   payload: id
 })
 
-export const editSticker = (form) => ({
-  type: StickerActionTypes.EDIT_STICKER,
+export const getSingleStickerSuccess = (form) => ({
+  type: StickerActionTypes.GET_SINGLE_STICKER_SUCCESS,
   payload: form
+})
+
+
+export const deleteStickerStart = (id) => ({
+  type: StickerActionTypes.DELETE_STICKER_START,
+  payload: id
+})
+
+export const deleteStickerSuccess = (id) => ({
+  type: StickerActionTypes.DELETE_STICKER_SUCCESS,
+  payload: id
+})
+
+export const deleteStickerFailure = (errorMessage) => ({
+  type: StickerActionTypes.DELETE_STICKER_FAILURE,
+  payload: errorMessage
+})
+
+export const editStickerStart = (form) => ({
+  type: StickerActionTypes.EDIT_STICKER_START,
+  payload: form
+})
+
+export const editStickerSuccess = (form) => ({
+  type: StickerActionTypes.EDIT_STICKER_SUCCESS,
+  payload: form
+})
+
+export const editStickerFailure = (errorMessage) => ({
+  type: StickerActionTypes.EDIT_STICKER_FAILURE,
+  payload: errorMessage
 })
 

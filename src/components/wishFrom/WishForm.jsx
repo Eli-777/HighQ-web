@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux'
-import { addWishCard } from '../../redux/wishCard/wishCard.action.js'
+import { addWishCardStart } from '../../redux/wishCard/wishCard.action.js'
 
 import CustomButton from '../custom-button/CustomButton'
 import { NoInput, blankWarning } from '../../effects/sweetAlert2.effects'
 
 import './wishForm.style.scss'
 
-function WishForm({ addWishCard }) {
+function WishForm({ addWishCardStart }) {
   const [form, setForm] = useState({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
 
   function handleSubmit(event) {
@@ -24,8 +24,7 @@ function WishForm({ addWishCard }) {
       return
     }
 
-    addWishCard(form)
-    setForm({ name: '', email: '', isPublic: 'true', text: '', createTime: '' })
+    addWishCardStart({ form, setForm })
   }
 
 
@@ -72,8 +71,8 @@ function WishForm({ addWishCard }) {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    addWishCard: (form) => {
-      dispatch(addWishCard(form))
+    addWishCardStart: (form) => {
+      dispatch(addWishCardStart(form))
     }
   }
 }

@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getSingleHistory } from '../../redux/history/history.action'
+import { getSingleHistoryStart } from '../../redux/history/history.action'
 
 import AdminHistoryAddPage from '../adminHistoryAdd/AdminHistoryAdd'
+import Spinner from '../spinner/spinner.component'
 
 function AdminHistoryEdit(props) {
 
@@ -12,12 +13,17 @@ function AdminHistoryEdit(props) {
   const selectedHistory = useSelector(state => state.history.selectedHistory)
 
   useEffect(() => {
-    dispatch(getSingleHistory(id))
+    dispatch(getSingleHistoryStart(id))
   }, [id, dispatch])
 
   return (
     <div>
-      <AdminHistoryAddPage selectedHistory={selectedHistory} title="編輯歷史" submitButton="儲存" edit/>
+      {
+        !selectedHistory ?
+          <Spinner />
+          :
+          <AdminHistoryAddPage selectedHistory={selectedHistory} title="編輯歷史" submitButton="儲存" edit />
+      }
     </div>
   );
 }

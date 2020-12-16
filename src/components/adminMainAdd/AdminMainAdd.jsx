@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux'
-import { addPostCards, editPostCard } from '../../redux/postCard/postCard.action'
+import { addPostCardStart, editPostCardStart } from '../../redux/postCard/postCard.action'
 import { useHistory } from 'react-router-dom'
 
 import FromGroupInput from '../formGroupInput/FormGroupInput'
 import FromSelectInput from '../formSelectInput/FormSelectInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
-import { NoInput, addSuccess, saveWarning } from '../../effects/sweetAlert2.effects'
+import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
 
 
 function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
@@ -41,19 +41,13 @@ function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
     }
 
     if (!edit) {
-      dispatch(addPostCards(form))
-      addSuccess('新增')
-      setForm({ media: 'default', date: '', photo: '', link: '' })
+      dispatch(addPostCardStart({ form, setForm }))
     } else {
       saveWarning().then((result) => {
         if (result.isConfirmed) {
-          dispatch(editPostCard(form))
-          addSuccess('編輯').then(() => {
-            history.push(`/admin/main`)
-          })
-        } 
+          dispatch(editPostCardStart({ form, history }))
+        }
       })
-
     }
   }
 

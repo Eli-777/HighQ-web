@@ -17,23 +17,33 @@ function AdminSticker(props) {
 
   const stickers = useSelector((state) => state.sticker.stickers)
   const isLoading = useSelector((state) => state.sticker.isLoading)
-  const [selectStickers, setSelectStickers] = useState(stickers)
+  const [selectStickers, setSelectStickers] = useState([{
+    id: '',
+    type: 'default',
+    name: '',
+    price: '',
+    image: { single: '', together: '' },
+    link: '',
+    description: ''
+  }])
 
   const dispatch = useDispatch()
 
   useEffect(() => {
-    dispatch(fetchStickerStart())
+    dispatch(fetchStickerStart('admin'))
   }, [dispatch])
 
   useEffect(() => {
     if (queryText && !isLoading) {
-      let otherTypeStickers = stickers[queryText]
+      let otherTypeStickers = stickers.filter((sticker) => sticker.type === queryText)
+      // let otherTypeStickers = stickers[queryText]
       setSelectStickers(otherTypeStickers)
     } else if (!isLoading) {
-      let onlyStickers = stickers['sticker']
+      let onlyStickers = stickers.filter((sticker) => sticker.type === 'sticker')
+      // let onlyStickers = stickers['sticker']
       setSelectStickers(onlyStickers)
     }
-  }, [stickers, queryText, selectStickers, isLoading])
+  }, [stickers, queryText, isLoading])
 
   const tableTitles = [
     '序列',
