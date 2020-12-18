@@ -12,6 +12,7 @@ import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
 
 function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
   const [form, setForm] = useState({ media: 'default', date: '', photo: '', link: '' })
+  const [previewImage, setPreviewImage] = useState()
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -52,7 +53,17 @@ function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
   }
 
   function handleChange(event) {
-    const { value, name } = event.target
+    const { value, name, files } = event.target
+    if (files) {
+      let previewImageURL = window.URL.createObjectURL(files[0])
+      setPreviewImage(previewImageURL)
+      let image = files[0]
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setForm({ ...form, photo: e.target.result })
+      }
+      reader.readAsDataURL(image)
+    }
     setForm({ ...form, [name]: value })
   }
 
@@ -65,8 +76,18 @@ function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
           <option value="ig">IG</option>
         </FromSelectInput>
         <FromGroupInput name="日期" id="date" value={form.date} type="date" onChange={handleChange} />
-        <FromGroupInput name="照片連結" id="photo" value={form.photo} onChange={handleChange} />
         <FromGroupInput name="貼文連結" id="link" value={form.link} onChange={handleChange} />
+        <div className="adminAdd__input-image">
+          <FromGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
+          {
+            form.photo ?
+              <img
+                src={previewImage ? previewImage : form.photo}
+                className="adminAdd__preview-image"
+                alt="preview"
+              /> : null
+          }
+        </div>
 
         <AdminCustomButton edit={submitButton} />
 

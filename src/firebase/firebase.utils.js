@@ -42,43 +42,15 @@ export const editDocument = async (collectionKey, objectsToDelete) => {
   collectionRefDoc.update({ ...objectsToDelete })
 }
 /*** sort function start ***/
-function sortedLatestToOldestCreateTime(transformedItems) {
+
+function sortedLatestToOldest(transformedItems, sortDateKey) {
   let sortedItems = transformedItems.map((item) => {
-    item.date = new Date(item.createTime)
+    item.changeDate = new Date(item[sortDateKey])
     return item
   })
   sortedItems.sort((a, b) =>
-    b.date - a.date
+    b.changeDate - a.changeDate
   )
-  return sortedItems
-}
-
-function sortedLatestToOldestPublishTime(transformedItems) {
-  let sortedItems = transformedItems.map((item) => {
-    let itemDate = item.date.split('-')
-    let year = itemDate[0]
-    let month = itemDate[1]
-    let day = itemDate[2]
-    item.year = year
-    item.month = month
-    item.day = day
-    return item
-  })
-  sortedItems.sort((a, b) => {
-    let yearA = a.year
-    let yearB = b.year
-    let monthA = a.month
-    let monthB = b.month
-    let dayA = a.day
-    let dayB = b.day
-    if (yearA === yearB) {
-      if (monthA === monthB) {
-        return dayB - dayA
-      }
-      return monthB - monthA
-    }
-    return yearB - yearA
-  })
   return sortedItems
 }
 
@@ -98,7 +70,7 @@ export const convertPostCardsSnapshotToMap = (postCards) => {
     }
   })
 
-  let sortedPostCard = sortedLatestToOldestPublishTime(transformedPostCard)
+  let sortedPostCard = sortedLatestToOldest(transformedPostCard, 'date')
   return sortedPostCard
 }
 
@@ -114,7 +86,7 @@ export const convertCharactersSnapshotToMap = (characters) => {
     }
   })
 
-  let sortedCharacter = sortedLatestToOldestCreateTime(transformedCharacter)
+  let sortedCharacter = sortedLatestToOldest(transformedCharacter, 'createTime')
   return sortedCharacter
 }
 
@@ -133,7 +105,7 @@ export const convertStickersSnapshotToMap = (stickers) => {
     }
   })
 
-  let sortedSticker = sortedLatestToOldestCreateTime(transformedSticker)
+  let sortedSticker = sortedLatestToOldest(transformedSticker, 'createTime')
   return sortedSticker
 }
 
@@ -150,7 +122,7 @@ export const convertWishCardsSnapshotToMap = (wishCards) => {
     }
   })
 
-  let sortedWishCard = sortedLatestToOldestCreateTime(transformedWishCard)
+  let sortedWishCard = sortedLatestToOldest(transformedWishCard, 'createTime')
   return sortedWishCard
 }
 
@@ -220,7 +192,7 @@ export const convertAdminHistoriesSnapshotToMap = (histories) => {
     }
   })
 
-  let sortedHistory = sortedLatestToOldestPublishTime(transformedHistory)
+  let sortedHistory = sortedLatestToOldest(transformedHistory, 'date')
   return sortedHistory
 }
 

@@ -115,6 +115,21 @@ textarea {
     text-align: center;
     margin-bottom: 2rem;
   }
+
+  &__input-image {
+    display: flex;
+    position: relative;
+  }
+
+  &__preview-image {
+    margin: 0.8rem;
+    position: absolute;
+    right: 6vw;
+    width: 20vw;
+    height: 20vw;
+    max-width: 12rem;
+    max-height: 12rem;
+  }
 }
 
 
@@ -144,6 +159,15 @@ textarea {
     }
     &:focus:invalid {
       border-bottom: 2px solid red;
+    }
+
+    &-image {
+      border: none;
+      color: transparent;
+      border: 1px solid $color-black;
+      width: 100%;
+      height: 14rem;
+      padding: 2rem;
     }
   }
 

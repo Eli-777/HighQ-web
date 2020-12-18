@@ -18,6 +18,7 @@ function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
     img: '',
     desc: ''
   })
+  const [previewImage, setPreviewImage] = useState()
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -58,7 +59,17 @@ function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
   }
 
   function handleChange(event) {
-    const { value, name } = event.target
+    const { value, name, files } = event.target
+    if (files) {
+      let previewImageURL = window.URL.createObjectURL(files[0])
+      setPreviewImage(previewImageURL)
+      let image = files[0]
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setForm({ ...form, img: e.target.result })
+      }
+      reader.readAsDataURL(image)
+    }
     setForm({ ...form, [name]: value })
   }
 
@@ -71,7 +82,17 @@ function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
           <option value="history">事件</option>
         </FromSelectInput>
         <FromGroupInput name="日期" id="date" type="date" value={form.date} onChange={handleChange} />
-        <FromGroupInput name="圖片" id="img" type="text" value={form.img} onChange={handleChange} />
+        <div className="adminAdd__input-image">
+          <FromGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
+          {
+            form.img ?
+              <img
+                src={previewImage ? previewImage : form.img}
+                className="adminAdd__preview-image"
+                alt="preview"
+              /> : null
+          }
+        </div>
         <FormTextareaInput name="描述" id="desc" value={form.desc} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />

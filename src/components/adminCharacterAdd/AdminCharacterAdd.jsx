@@ -12,6 +12,7 @@ import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
 
 function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
   const [form, setForm] = useState({ name: '', characterImg: '', intro: { intro1: '', intro2: '' } })
+  const [previewImage, setPreviewImage] = useState()
   const dispatch = useDispatch()
   const history = useHistory()
 
@@ -49,8 +50,18 @@ function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
   }
 
   function handleChange(event) {
-    const { value, name } = event.target
+    const { value, name, files } = event.target
     setForm({ ...form, [name]: value })
+    if (files) {
+      let previewImageURL = window.URL.createObjectURL(files[0])
+      setPreviewImage(previewImageURL)
+      let image = files[0]
+      const reader = new FileReader()
+      reader.onload = (e) => {
+        setForm({ ...form, characterImg: e.target.result })
+      }
+      reader.readAsDataURL(image)
+    }
     if (name === "intro1" || name === "intro2") {
       setForm({ ...form, intro: { ...form.intro, [name]: value } })
     }
@@ -61,7 +72,17 @@ function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
         <FromGroupInput name="角色名稱" id="name" value={form.name} onChange={handleChange} />
-        <FromGroupInput name="角色照片" id="characterImg" value={form.characterImg} onChange={handleChange} />
+        <div className="adminAdd__input-image">
+          <FromGroupInput type="file" accept="image/*" name="角色圖片" id="photo" image onChange={handleChange} />
+          {
+            form.characterImg ?
+              <img
+                src={previewImage ? previewImage : form.characterImg}
+                className="adminAdd__preview-image"
+                alt="preview"
+              /> : null
+          }
+        </div>
         <FormTextareaInput name="角色介紹1" id="intro1" value={form.intro && form.intro.intro1 ? form.intro.intro1 : ''} onChange={handleChange} />
         <FormTextareaInput name="角色介紹2" id="intro2" value={form.intro && form.intro.intro2 ? form.intro.intro2 : ''} onChange={handleChange} />
 
