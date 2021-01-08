@@ -41,7 +41,7 @@ function App() {
     { id: 'admin5', title: '管理許願池', link: '/admin/wishCard' },
   ]
   const header = [
-    { id: 'header1', title: '最新貼文', link: '/main' },
+    { id: 'header1', title: '最新貼文', link: '/' },
     { id: 'header2', title: '作者介紹', link: '/author' },
     { id: 'header3', title: '角色介紹', link: '/characters' },
     { id: 'header4', title: '貼圖介紹', link: '/stickers' },
@@ -130,8 +130,7 @@ function App() {
           <Header type={header} />
 
           <Switch>
-            <Redirect exact={true} path="/" to="/main" />
-            <Route path="/main" exact={true}>
+            <Route path="/" exact={true}>
               <Homepage />
             </Route>
             <Route path="/author" exact={true}>

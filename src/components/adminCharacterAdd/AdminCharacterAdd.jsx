@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux'
 import { addCharacterStart, editCharacterStart } from '../../redux/character/character.action'
 import { useHistory } from 'react-router-dom'
 
-import FromGroupInput from '../formGroupInput/FormGroupInput'
+import FormGroupInput from '../formGroupInput/FormGroupInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
@@ -71,9 +71,9 @@ function AdminCharacterAdd({ selectedCharacter, title, submitButton, edit }) {
     <div className="adminAdd__page pageContainer max-width-big-desktop">
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
-        <FromGroupInput name="角色名稱" id="name" value={form.name} onChange={handleChange} />
+        <FormGroupInput name="角色名稱" id="name" value={form.name} onChange={handleChange} />
         <div className="adminAdd__input-image">
-          <FromGroupInput type="file" accept="image/*" name="角色圖片" id="photo" image onChange={handleChange} />
+          <FormGroupInput type="file" accept="image/*" name="角色圖片" id="photo" image onChange={handleChange} />
           {
             form.characterImg ?
               <img

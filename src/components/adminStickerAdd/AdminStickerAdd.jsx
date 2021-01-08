@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { addStickerStart, editStickerStart } from '../../redux/sticker/sticker.action'
 import { useHistory } from 'react-router-dom'
 
-import FromGroupInput from '../formGroupInput/FormGroupInput'
-import FromSelectInput from '../formSelectInput/FormSelectInput'
+import FormGroupInput from '../formGroupInput/FormGroupInput'
+import FormSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
@@ -79,16 +79,16 @@ function AdminStickerAdd({ selectedSticker, title, submitButton, edit }) {
     <div className="adminAdd__page pageContainer max-width-big-desktop">
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
-        <FromSelectInput name="類型" id="type" value={form.type} onChange={handleChange} >
+        <FormSelectInput name="類型" id="type" value={form.type} onChange={handleChange} >
           <option value="sticker">貼圖</option>
           <option value="emoji">表情貼</option>
           <option value="theme">主題</option>
-        </FromSelectInput>
-        <FromGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
-        <FromGroupInput name="價格" id="price" type="number" value={form.price} onChange={handleChange} />
-        <FromGroupInput name="單張貼圖" id="single" value={form.image && form.image.single ? form.image.single : ''} onChange={handleChange} />
-        <FromGroupInput name="全部貼圖" id="together" value={form.image && form.image.together ? form.image.together : ''} onChange={handleChange} />
-        <FromGroupInput name="購買連結" id="link" value={form.link} onChange={handleChange} />
+        </FormSelectInput>
+        <FormGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
+        <FormGroupInput name="價格" id="price" type="number" value={form.price} onChange={handleChange} />
+        <FormGroupInput name="單張貼圖" id="single" value={form.image && form.image.single ? form.image.single : ''} onChange={handleChange} />
+        <FormGroupInput name="全部貼圖" id="together" value={form.image && form.image.together ? form.image.together : ''} onChange={handleChange} />
+        <FormGroupInput name="購買連結" id="link" value={form.link} onChange={handleChange} />
         <FormTextareaInput name="描述" id="description" value={form.description} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />

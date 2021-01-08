@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { addPostCardStart, editPostCardStart } from '../../redux/postCard/postCard.action'
 import { useHistory } from 'react-router-dom'
 
-import FromGroupInput from '../formGroupInput/FormGroupInput'
-import FromSelectInput from '../formSelectInput/FormSelectInput'
+import FormGroupInput from '../formGroupInput/FormGroupInput'
+import FormSelectInput from '../formSelectInput/FormSelectInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
 import { NoInput, saveWarning } from '../../effects/sweetAlert2.effects'
@@ -71,14 +71,14 @@ function AdminAdd({ selectedPostCard, title, submitButton, edit }) {
     <div className="adminAdd__page pageContainer max-width-big-desktop">
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
-        <FromSelectInput name="來源" id="media" value={form.media} onChange={handleChange} >
+        <FormSelectInput name="來源" id="media" value={form.media} onChange={handleChange} >
           <option value="fb">FB</option>
           <option value="ig">IG</option>
-        </FromSelectInput>
-        <FromGroupInput name="日期" id="date" value={form.date} type="date" onChange={handleChange} />
-        <FromGroupInput name="貼文連結" id="link" value={form.link} onChange={handleChange} />
+        </FormSelectInput>
+        <FormGroupInput name="日期" id="date" value={form.date} type="date" onChange={handleChange} />
+        <FormGroupInput name="貼文連結" id="link" value={form.link} onChange={handleChange} />
         <div className="adminAdd__input-image">
-          <FromGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
+          <FormGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
           {
             form.photo ?
               <img

@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { editHistoryStart, addHistoryStart } from '../../redux/history/history.action'
 import { useHistory } from 'react-router-dom'
 
-import FromGroupInput from '../formGroupInput/FormGroupInput'
-import FromSelectInput from '../formSelectInput/FormSelectInput'
+import FormGroupInput from '../formGroupInput/FormGroupInput'
+import FormSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
@@ -77,13 +77,13 @@ function AdminHistoryAdd({ selectedHistory, title, submitButton, edit }) {
     <div className="adminAdd__page pageContainer max-width-big-desktop">
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
-        <FromSelectInput name="類型" id="type" value={form.type} onChange={handleChange} >
+        <FormSelectInput name="類型" id="type" value={form.type} onChange={handleChange} >
           <option value="product">產品</option>
           <option value="history">事件</option>
-        </FromSelectInput>
-        <FromGroupInput name="日期" id="date" type="date" value={form.date} onChange={handleChange} />
+        </FormSelectInput>
+        <FormGroupInput name="日期" id="date" type="date" value={form.date} onChange={handleChange} />
         <div className="adminAdd__input-image">
-          <FromGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
+          <FormGroupInput type="file" accept="image/*" name="圖片" id="photo" image onChange={handleChange} />
           {
             form.img ?
               <img

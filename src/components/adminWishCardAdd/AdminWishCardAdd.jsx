@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux'
 import { editWishCardStart } from '../../redux/wishCard/wishCard.action'
 import { useHistory } from 'react-router-dom'
 
-import FromGroupInput from '../formGroupInput/FormGroupInput'
-import FromSelectInput from '../formSelectInput/FormSelectInput'
+import FormGroupInput from '../formGroupInput/FormGroupInput'
+import FormSelectInput from '../formSelectInput/FormSelectInput'
 import FormTextareaInput from '../formTextareaInput/FormTextareaInput'
 import AdminCustomButton from '../adminCustomButton/AdminCustomButton'
 
@@ -63,12 +63,12 @@ function AdminWishCardAdd({ selectedWishCard, title, submitButton }) {
     <div className="adminAdd__page pageContainer max-width-big-desktop">
       <form className="adminAdd__form" onSubmit={handleSubmit}>
         <h1 className="adminAdd__title">{title}</h1>
-        <FromSelectInput name="是否公開" id="isPublic" value={form.isPublic} onChange={handleChange} >
+        <FormSelectInput name="是否公開" id="isPublic" value={form.isPublic} onChange={handleChange} >
           <option value="true">公開</option>
           <option value="false">匿名</option>
-        </FromSelectInput>
-        <FromGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
-        <FromGroupInput name="信箱" id="email" type="email" value={form.email} onChange={handleChange} />
+        </FormSelectInput>
+        <FormGroupInput name="名稱" id="name" value={form.name} onChange={handleChange} />
+        <FormGroupInput name="信箱" id="email" type="email" value={form.email} onChange={handleChange} />
         <FormTextareaInput name="留言" id="text" value={form.text} onChange={handleChange} />
 
         <AdminCustomButton edit={submitButton} />
