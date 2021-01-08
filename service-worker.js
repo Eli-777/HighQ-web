@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/HighQ-web/precache-manifest.e908b788ac0df028e79f9614f41c3eda.js"
+  "/HighQ-web/precache-manifest.81cfe12e508bc42a44f48030c2abc73d.js"
 );
 
 self.addEventListener('message', (event) => {
