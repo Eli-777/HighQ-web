@@ -9,6 +9,8 @@ export const NoInput = (text)=> Swal.fire({
 export const addSuccess = (text)=> Swal.fire({
   icon: 'success',
   title: `${text}新增成功!`,
+  timer: '2000',
+  showConfirmButton: false
 })
 
 export const deleteWarning = ()=> Swal.fire({
@@ -21,6 +23,14 @@ export const deleteWarning = ()=> Swal.fire({
   cancelButtonText:
     '取消',
 })
+
+export const deleteSuccess = ()=> Swal.fire({
+  icon: 'success',
+  title: `刪除成功!`,
+  timer: '2000',
+  showConfirmButton: false
+})
+
 
 export const saveWarning = ()=> Swal.fire({
   icon: 'warning',

@@ -18,7 +18,7 @@ import {
   getSingleStickerSuccess,
 } from './sticker.action'
 import StickerActionTypes from './sticker.type.js'
-import { addSuccess } from '../../effects/sweetAlert2.effects'
+import { addSuccess, deleteSuccess } from '../../effects/sweetAlert2.effects'
 
 export function* fetchStickerAsync() {
   try {
@@ -73,6 +73,7 @@ export function* deleteHistoryAsync(action) {
   try {
     yield (call(deleteDocument, 'stickers', action.payload))
     yield put(deleteStickerSuccess(action.payload))
+    yield deleteSuccess()
   } catch (error) {
     yield put(deleteStickerFailure(error.message))
   }

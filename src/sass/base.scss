@@ -175,6 +175,18 @@ textarea {
     font-size: 2rem;
     font-weight: 600;
   }
+
+  &__textarea {
+    resize: none;
+    width: 100%;
+    border: 1px solid $color-black;
+    opacity: 0.6;
+    border-radius: 5px;
+    grid-column: 1 / -1;
+
+    font-size: 2rem;
+    padding: 0.8rem;
+  }
 }
 /****  form end ****/
 

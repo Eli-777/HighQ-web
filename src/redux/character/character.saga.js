@@ -18,7 +18,7 @@ import {
   getSingleCharacterSuccess, 
 } from './character.action'
 import CharacterActionTypes from './character.type'
-import { addSuccess } from '../../effects/sweetAlert2.effects'
+import { addSuccess, deleteSuccess } from '../../effects/sweetAlert2.effects'
 
 export function* fetchCharacterAsync() {
   try {
@@ -66,6 +66,7 @@ export function* deleteHistoryAsync(action) {
   try {
     yield (call(deleteDocument, 'characters', action.payload))
     yield put(deleteCharacterSuccess(action.payload))
+    yield deleteSuccess()
   } catch (error) {
     yield put(deleteCharacterFailure(error.message))
   }

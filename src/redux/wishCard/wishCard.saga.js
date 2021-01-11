@@ -18,7 +18,7 @@ import {
   getSingleWishCardSuccess
 } from './wishCard.action'
 import WishCardActionTypes from './wishCard.type'
-import { addSuccess } from '../../effects/sweetAlert2.effects'
+import { addSuccess, deleteSuccess } from '../../effects/sweetAlert2.effects'
 
 export function* fetchWishCardAsync() {
   try {
@@ -66,6 +66,7 @@ export function* deleteWishCardAsync(action) {
   try {
     yield (call(deleteDocument, 'wishCards', action.payload))
     yield put(deleteWishCardSuccess(action.payload))
+    yield deleteSuccess()
   } catch (error) {
     yield put(deleteWishCardFailure(error.message))
   }

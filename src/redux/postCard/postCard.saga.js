@@ -19,7 +19,7 @@ import {
   getSinglePostCardSuccess
 } from './postCard.action'
 import PostCardActionTypes from './postCard.type.js'
-import { addSuccess } from '../../effects/sweetAlert2.effects'
+import { addSuccess, deleteSuccess } from '../../effects/sweetAlert2.effects'
 
 export function* fetchPostCardsAsync() {
   try {
@@ -75,6 +75,7 @@ export function* deletePostCardAsync(action) {
   try {
     yield (call(deleteDocument, 'postCards', action.payload))
     yield put(deletePostCardSuccess(action.payload))
+    yield deleteSuccess()
   } catch (error) {
     yield put(deletePostCardFailure(error.message))
   }

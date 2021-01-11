@@ -19,7 +19,7 @@ import {
   getSingleHistorySuccess
 } from './history.action'
 import HistoryActionTypes from './history.type'
-import { addSuccess } from '../../effects/sweetAlert2.effects'
+import { addSuccess, deleteSuccess } from '../../effects/sweetAlert2.effects'
 
 export function* fetchHistoryAsync() {
   try {
@@ -90,6 +90,7 @@ export function* deleteHistoryAsync(action) {
   try {
     yield (call(deleteDocument, 'histories', action.payload))
     yield put(deleteHistorySuccess(action.payload))
+    yield deleteSuccess()
   } catch (error) {
     yield put(deleteHistoryFailure(error.message))
   }
