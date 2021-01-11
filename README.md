@@ -13,34 +13,34 @@
 
 1.將專案clone到本地端
 
-`git clone https://github.com/Eli-777/HighQ-web.git`
+### `git clone https://github.com/Eli-777/HighQ-web.git`
 
 2.進入到專案資料夾後，安裝packages(依照package.json的項目安裝)
 
-`npm install`
+### `npm install`
 
 3.啟動專案
 
-`npm start`
+### `npm start`
 
 在terminal可以看到 `Running on the localhost:3000`，開啟瀏覽器在網址列輸入localhost:3000或點[這裡](http://localhost:3000)
 
 ## 專案畫面
-前台
+### 前台
 
 ![Alt text](/public/pictures/highq-front.png)
 
-後台
+### 後台
 
 ![Alt text](/public/pictures/highq-back.png)
 
 ## 測試帳號
 登入後台修改資料時需登入帳號密碼。
 
-`
+```
 帳號：test@example.com
 密碼：123456
-`
+```
 
 
 
