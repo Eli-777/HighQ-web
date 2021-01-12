@@ -8,25 +8,30 @@
       "type": "image/x-icon"
     },
     {
-      "src": "mstile-150x150.png",
-      "type": "image/png",
-      "sizes": "150x150"
-    },
-    {
       "src": "android-chrome-192x192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "maskable_icon_x1.png",
-      "sizes": "196x196",
+      "src": "mstile-150x150.png",
       "type": "image/png",
-      "purpose": "any maskable"
+      "sizes": "270x270"
     },
     {
       "src": "android-chrome-384x384.png",
       "type": "image/png",
       "sizes": "384x384"
+    },
+    {
+      "src": "android-chrome-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    },
+    {
+      "src": "maskable_icon_x1.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "start_url": ".",
