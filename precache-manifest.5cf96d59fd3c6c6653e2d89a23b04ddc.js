@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fd43a55ba38565c6f65eba55a671fc67",
+    "revision": "e38e59a5acd52d103362a39b2486d269",
     "url": "/HighQ-web/index.html"
   },
   {
