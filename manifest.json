@@ -1,5 +1,5 @@
 {
-  "short_name": "React App",
+  "short_name": "High Q web",
   "name": "Create React App Sample",
   "icons": [
     {
@@ -24,7 +24,7 @@
       "purpose": "any maskable"
     },
     {
-      "src": "android-chrome-384x384.png.png",
+      "src": "android-chrome-384x384.png",
       "type": "image/png",
       "sizes": "384x384"
     }
