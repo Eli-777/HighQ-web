@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "1c16e7c263249fdd7f057bca3e81b34c",
+    "revision": "5cf5b76356433deca0bbcc94e4df2bc5",
     "url": "/HighQ-web/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/css/10.63c54f4f.chunk.css"
   },
   {
-    "revision": "b192e1c7b872611a88b0",
+    "revision": "1f08d48161778bcc5da7",
     "url": "/HighQ-web/static/css/11.b23fc250.chunk.css"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/css/9.75749fe9.chunk.css"
   },
   {
-    "revision": "9f960b64459e223934a6",
-    "url": "/HighQ-web/static/css/main.ac1d1722.chunk.css"
+    "revision": "ceeb4c18bba2a5bebd25",
+    "url": "/HighQ-web/static/css/main.0cb2123c.chunk.css"
   },
   {
     "revision": "1eaa196048bbaf60dcf3",
@@ -56,8 +56,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/js/10.827f98ec.chunk.js"
   },
   {
-    "revision": "b192e1c7b872611a88b0",
-    "url": "/HighQ-web/static/js/11.158e596f.chunk.js"
+    "revision": "1f08d48161778bcc5da7",
+    "url": "/HighQ-web/static/js/11.d4735214.chunk.js"
   },
   {
     "revision": "a83e0265a3edd5e52a8f",
@@ -136,19 +136,19 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/HighQ-web/static/js/9.443cc4d5.chunk.js"
   },
   {
-    "revision": "9f960b64459e223934a6",
-    "url": "/HighQ-web/static/js/main.d260d668.chunk.js"
+    "revision": "ceeb4c18bba2a5bebd25",
+    "url": "/HighQ-web/static/js/main.0fdacbee.chunk.js"
   },
   {
-    "revision": "a892b73d224893425434",
-    "url": "/HighQ-web/static/js/runtime-main.2e26b018.js"
+    "revision": "213a9e90cdff7cfac539",
+    "url": "/HighQ-web/static/js/runtime-main.69777579.js"
   },
   {
     "revision": "b119eb94669605e046b0b704c01b1c5e",
     "url": "/HighQ-web/static/media/author.b119eb94.svg"
   },
   {
-    "revision": "e527901f5694afde0233b532f2d53652",
-    "url": "/HighQ-web/static/media/home-page-long-image.e527901f.jpg"
+    "revision": "8f5a3a6415077e5da5ba295661c7ddd9",
+    "url": "/HighQ-web/static/media/home-page-long-image-low.8f5a3a64.jpg"
   }
 ]);
