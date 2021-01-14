@@ -22,9 +22,9 @@ function Footer(props) {
         </ul>
 
         <div className="footer__connect">
-          <h3 className="footer__connect--title">
+          <h1 className="footer__connect--title">
             Connect with us
-          </h3>
+          </h1>
           <p className="footer__connect--mail">
             Email: fireguns0903@gmaiil.com
           </p>
